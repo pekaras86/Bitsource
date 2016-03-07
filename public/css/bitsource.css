@@ -1,0 +1,412 @@
+/********************Layout********************/
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.page-wrapper {
+    min-height:100%;
+    /*position:relative;*/
+}
+
+.navbar {
+    border-radius: 0px;
+}
+
+.footer {
+    background-color: #2196f3;
+    border-radius: 0px;
+    height: 80px;
+    /*position: absolute;*/
+    bottom: 0;
+    width: 100%;
+    clear: both;
+}
+
+.footer ul { 
+    word-spacing: 10px;
+    margin-top: 10px;
+}
+
+.footer-links li {
+    display: inline;
+    list-style-type: none;
+}
+
+.footer a:link {color: white;}
+.footer a:visited {color: white;}
+.footer a:hover {color: white;}
+
+footer p {
+    text-align:center;
+    color: white;
+}
+
+/********************Home Page (without sign-in)********************/
+.hp-form {
+    width: 50%;
+    margin: auto;
+    position: relative;
+    top: 200px;
+}
+
+.hp-form label {
+    color: white;
+}
+
+.hp-form input {
+    color:white;
+}
+
+.styled-select select {
+    background-color: white;
+    height: 40px;
+    width: 150px;
+    padding: 5px;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-color: white; 
+    background-size: 25px auto; 
+}
+
+.styled-select select:focus, select.form-control:focus {
+    box-shadow: 0 0 0 white;
+    border-style: solid;
+    border-width: 0.2px;
+    border-color: #2196f3;
+}
+
+.home-main-content {
+    height: 530px;
+    margin-top: -25px;
+    margin-bottom: -10px;
+    background-image: url("../images/home_image.jpg");
+    width: 100%;
+    background-size: 100% 110%;
+}
+
+/********************Sign-in page********************/
+.sign-in-form {
+    width: 50%;
+    margin:auto;
+    margin-top: 10%;
+}
+
+/********************Register page********************/
+.register-form {
+    width: 50%;
+    margin:auto;
+    margin-top: 5%;
+}
+
+
+/********************Freelancers list page********************/
+.freelancers-search-form {
+    width: 50%;
+    margin:auto;
+}
+
+.freelancer-page-title {
+    font-size:200%;
+    margin-left:20px;
+}
+
+.freelancer-short-profile {
+    height:120px;
+    width:800px;
+    margin: auto;
+    background-color: cyan;
+    padding:10px;
+    margin-top:10px;
+}
+
+.freelancer-short-avatar {
+    width:13%;
+    float:left;
+}
+
+.freelancer-short-price-contact {
+    float:right;
+    width:15%;
+    height:120px;
+}
+
+.freelancer-short-info {
+    width:65%;
+    float:left;
+    margin-left:20px;
+}
+
+.freelancer-short-glyphicons .space {
+    margin-right:10px;
+}
+
+.freelancers-short-main {
+    margin-top:50px;
+}
+
+.freelancers-push {
+    min-height: 500px;
+}
+
+
+/********************Jobs list page********************/
+.jobs-search-form {
+    width: 50%;
+    margin:auto;
+}
+
+.jobs-page-title {
+    font-size:200%;
+    margin-left:20px;
+}
+
+.jobs-short-main {
+    margin-top:50px;
+}
+
+.jobs-short-profile {
+    height:170px;
+    width:800px;
+    margin: auto;
+    background-color: cyan;
+    padding:10px;
+    margin-top:10px;
+}
+
+.jobs-short-avatar {
+    width:13%;
+    float:left;
+}
+
+.jobs-short-info {
+    width:65%;
+    float:left;
+    margin-left:20px;
+}
+
+.jobs-short-glyphicons .space {
+    margin-right:10px;
+}
+
+.jobs-short-price-contact {
+    float:right;
+    width:15%;
+    height:120px;
+}
+
+.push-jobs {
+    min-height: 500px;
+}
+
+
+/********************Tasks list page********************/
+.tasks-page-title {
+    font-size:200%;
+    margin-left:20px;
+}
+
+.tasks-search-form {
+    width: 50%;
+    margin:auto;
+}
+
+.tasks-short-main {
+    margin-top:50px;
+}
+
+.tasks-short-profile {
+    height:170px;
+    width:800px;
+    margin: auto;
+    background-color: cyan;
+    padding:10px;
+    margin-top:10px;
+}
+
+.tasks-short-avatar {
+    width:13%;
+    float:left;
+}
+
+.tasks-short-info {
+    width:65%;
+    float:left;
+    margin-left:20px;
+}
+
+.tasks-short-glyphicons .space {
+    margin-right:10px;
+}
+
+.tasks-short-price-contact {
+    float:right;
+    width:15%;
+    height:120px;
+}
+
+.push-tasks {
+    min-height: 500px;
+}
+
+
+/********************Task main page********************/
+.push-task {
+    min-height: 500px;
+    width: 960px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.task-description-main {
+    border-style: solid;
+    border-width: 1px;
+    border-color: cyan;
+    border-radius: 5px;
+}
+
+.task-description-header {
+    background-color: cyan;
+    height: 80px;
+}
+
+.task-description-body {
+    margin: 20px;
+}
+
+.task-dates {
+    float: right;
+    background-color: white;
+    width: 200px;
+    height: 60px;
+    margin: 10px;
+    text-align:center;
+    color: green;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px #eee inset;
+    font-size: 15px;
+}
+
+.task-bids-budget {
+    float: left;
+    background-color: white;
+    width: 400px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px #eee inset;
+}
+
+.task-bids {
+    width: 30%;
+    text-align: center;
+    float: left;
+}
+
+.task-average-bids {
+    width: 30%;
+    text-align: center;
+    float: left;
+}
+
+.task-budget {
+    width: 30%;
+    text-align: center;
+    float:left;
+    margin-left: 10px;
+}
+
+.task-required-skills {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.task-required-skills li {
+    float: left;
+    display: inline;
+}
+
+.task-required-skills a {
+    padding: 5px 5px;
+}
+
+.task-place-bid {
+    float: right;
+    margin: 50px 0px 50px 0px;
+    clear:left;
+}
+
+.stars-rating {
+    width: 80px;
+    height: 20px;
+}
+
+.total-bids {
+    float:left;
+    clear:right;
+}
+
+.freelancer-bid {
+    clear: both;
+    min-height: 150px;
+    border-style: solid;
+    border-color: cyan;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.freelancer-bid-avatar-stars {
+    width: 15%;
+    min-height:150px;
+    float:left;
+}
+
+.freelancer-bid-price {
+    float:right;
+    min-height: 150px;
+    width:20%;
+    text-align: center;
+}
+
+.freelancer-bid-comments {
+    min-height: 150px;
+    width:65%;
+    float:left;
+}
+
+.freelancer-bid-avatar {
+    width: 70%;
+    margin:auto;
+    margin-top: 10px;
+}
+
+.freelancer-bid-stars-rating {
+    width: 80px;
+    height: 20px;
+    margin:auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+           
+
+            
