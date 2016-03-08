@@ -38,6 +38,8 @@ Route::get('tasks','TasksController@show');
 
 Route::get('task','TaskController@show');
 
+Route::get('freelancer_profile', 'FreelancerProfileController@show');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
