@@ -40,6 +40,8 @@ Route::get('task','TaskController@show');
 
 Route::get('freelancer_profile', 'FreelancerProfileController@show');
 
+Route::get('job_description', 'JobDescriptionController@show');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

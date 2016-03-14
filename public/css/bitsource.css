@@ -489,6 +489,32 @@ footer p {
 }
 
 
+/********************Job description page********************/
+
+.push-job-description {
+    min-height: 500px;
+    width: 960px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.job-description-body {
+    width: 960px;
+    border-style: solid;
+    border-color: cyan;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 100px;
+}
+
+.job-description-labels {
+    color: #FF00FF;
+    font-weight: bold;
+}
+
+
+
 
 
 
