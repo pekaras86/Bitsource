@@ -21,22 +21,28 @@ Route::get('/', function () {
 //Route::get('/','HomePage@index');
 Route::get('welcome','HomePage@index');
 
+//login - register
 Route::get('login','LoginController@show');
 
 Route::get('register','RegisterController@show');
 
+//lists
 Route::get('users_list','UsersListController@show');
 
 Route::get('jobs_list','JobsListController@show');
 
 Route::get('tasks_list','TasksListController@show');
 
+//descriptions
 Route::get('task_description','TaskDescriptionController@show');
 
 Route::get('user_profile', 'UserProfileController@show');
 
 Route::get('job_description', 'JobDescriptionController@show');
 
+Route::get('update_profile', 'UpdateProfileController@show');
+
+//contact form
 Route::get('contact', ['as' => 'contact', 'uses' => 'AboutController@create']);
 
 Route::post('contact', ['as' => 'contact_store', 'uses' => 'AboutController@store']); 

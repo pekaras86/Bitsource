@@ -24,7 +24,7 @@
   	<img src="images/avocarrot.jpg" class="img-responsive img-circle" alt="Responsive image">
   </div>
   <div class="tasks-short-info">
-  	<h5><a href="#">Σχεδίαση λογότυπου</a></h5>
+  	<h5><a href="task_description">Σχεδίαση λογότυπου</a></h5>
   	<h6><a href="#">Avocarrot</a></h6>
   	<h6>We develop our own facial imaging software but require coordinates of basic facial features to start. We are...</h6>
   	<div class="tasks-short-glyphicons">

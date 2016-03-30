@@ -10,6 +10,6 @@ use App\Http\Controllers\Controller;
 class JobsListController extends Controller
 {
     function show() {
-    	return view("jobs.jobs_list");
+    	return view("lists.jobs_list");
     }
 }

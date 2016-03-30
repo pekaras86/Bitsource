@@ -511,6 +511,119 @@ footer p {
     float:right;
 }
 
+/********************Update profile page********************/
+.push-update-profile {
+    min-height: 500px;
+    width: 960px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.update-profile-page {
+    border-style: solid;
+    border-color: cyan;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.update-photo-category-section {
+    width: 100%;
+    height: 150px;
+    
+}
+
+.update-user-photo {
+    width: 200px;
+    height: 150px;
+    float: left;
+}
+
+.default-user-img {
+    width:60%;
+    height: 70%;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.avatar-btn {
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.update-user-category {
+    width: 710px;
+    height: 150px;
+    float:right;
+}
+
+.user-category-radios {
+    margin-top: 20px;
+}
+
+.update-name-section {
+    width: 100%;
+    margin-top: 40px;
+    height: 100px;
+}
+
+.update-fname {
+    width:450px;
+    float: left;
+}
+
+.update-lname {
+    width:450px;
+    float: right;
+}
+
+.update-title-section {
+    width: 100%;
+    margin-top: 10px;
+    height: 100px;
+}
+
+.update-rate-phone-section {
+    width: 100%;
+    margin-top: 10px;
+    height: 100px;
+}
+
+.update-rate {
+    width:450px;
+    float: left;
+}
+
+.update-pnone {
+    width:450px;
+    float: right;
+}
+
+.update-euro-symbol {
+    font-size: 20px;
+}
+
+.update-user-description-section {
+    width: 100%;
+}
+
+.update-user-skills-section {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.update-user-location {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.update-user-button {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
 
 /********************Job description page********************/
 

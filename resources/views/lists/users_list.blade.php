@@ -24,7 +24,7 @@
   	<img src="images/karaoglanis_petros.jpg" class="img-responsive img-circle" alt="Responsive image">
   </div>
   <div class="freelancer-short-info">
-  	<h6><a href="#">Καραογλάνης Πέτρος</a></h6>
+  	<h6><a href="user_profile">Καραογλάνης Πέτρος</a></h6>
   	<h6>Responsive Web Designer | HTML 5 | CSS3 | Bootstrap | WordPress | Joomla | Drupal | Opencart | Newsletter |</h6>
   	<div class="freelancer-short-glyphicons">
   		<span class="glyphicon glyphicon-map-marker"></span><span class="space">Ξάνθη</span>
