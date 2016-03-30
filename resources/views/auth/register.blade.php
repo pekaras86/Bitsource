@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+
+<div class="push-register-page">
+
 <form class="form-horizontal register-form">
   <fieldset>
     <legend>Καλώς ήρθατε στο Bitsource</legend>
@@ -35,4 +38,7 @@
     </div>
   </fieldset>
 </form>
+
+</div> <!-- /push-register-page -->
+
 @endsection

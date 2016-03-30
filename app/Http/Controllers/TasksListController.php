@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class TasksController extends Controller
+class TasksListController extends Controller
 {
     function show() {
-    	return view("tasks.tasks");
+    	return view("tasks.tasks_list");
     }
 }

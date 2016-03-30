@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class JobsController extends Controller
+class JobsListController extends Controller
 {
     function show() {
-    	return view("jobs.jobs");
+    	return view("jobs.jobs_list");
     }
 }

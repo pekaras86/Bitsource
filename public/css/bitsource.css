@@ -85,7 +85,12 @@ footer p {
     background-size: 100% 110%;
 }
 
-/********************Sign-in page********************/
+/********************Login page********************/
+
+.push-login-page {
+    min-height: 400px;
+}
+
 .sign-in-form {
     width: 50%;
     margin:auto;
@@ -93,7 +98,25 @@ footer p {
 }
 
 /********************Register page********************/
+
+.push-register-page {
+    min-height: 450px;
+}
+
 .register-form {
+    width: 50%;
+    margin:auto;
+    margin-top: 5%;
+}
+
+
+/********************Contact page********************/
+
+.push-contact-page {
+    min-height: 450px;
+}
+
+.contact-form {
     width: 50%;
     margin:auto;
     margin-top: 5%;

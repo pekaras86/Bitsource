@@ -11,36 +11,35 @@
 |
 */
 
-//Dilwnw gia kathe request tou xristi ton antistixo controller pou tha ton exipiretisei
-// i diaforetika gia kathe view pou tha zitithei ton antistixo controller pou tha to servirei
-
-//kalos tropos gia statikes selides
-//gia tin home page synithos
 /*
 Route::get('/', function () {
     return view('home.welcome');
 });
 */
 
-//kata to request tou home page me methodo get servire to apotelesma sto xristi me 
-//ton WellcomeController kai ti methodo index
-Route::get('/','HomePage@index');
+
+//Route::get('/','HomePage@index');
+Route::get('welcome','HomePage@index');
 
 Route::get('login','LoginController@show');
 
 Route::get('register','RegisterController@show');
 
-Route::get('freelancers','FreelancersController@show');
+Route::get('users_list','UsersListController@show');
 
-Route::get('jobs','JobsController@show');
+Route::get('jobs_list','JobsListController@show');
 
-Route::get('tasks','TasksController@show');
+Route::get('tasks_list','TasksListController@show');
 
-Route::get('task','TaskController@show');
+Route::get('task_description','TaskDescriptionController@show');
 
-Route::get('freelancer_profile', 'FreelancerProfileController@show');
+Route::get('user_profile', 'UserProfileController@show');
 
 Route::get('job_description', 'JobDescriptionController@show');
+
+Route::get('contact', ['as' => 'contact', 'uses' => 'AboutController@create']);
+
+Route::post('contact', ['as' => 'contact_store', 'uses' => 'AboutController@store']); 
 
 /*
 |--------------------------------------------------------------------------

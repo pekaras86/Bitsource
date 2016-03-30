@@ -32,22 +32,22 @@
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#">Κεντρική<span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a href="welcome">Κεντρική<span class="sr-only">(current)</span></a></li>
 	        <li><a href="#">Ιστολόγιο</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Αναζήτηση<span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="#">Έργα</a></li>
+	            <li><a href="tasks_list">Έργα</a></li>
 	            <li class="divider"></li>
-	            <li><a href="#">Επαγγελματίες</a></li>
+	            <li><a href="users_list">Επαγγελματίες</a></li>
 	            <li class="divider"></li>
-	            <li><a href="#">Εργασία</a></li>
+	            <li><a href="jobs_list">Εργασία</a></li>
 	          </ul>
 	        </li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">Σύνδεση</a></li>
-	        <li><a href="#">Εγγραφή</a></li>
+	        <li><a href="login">Σύνδεση</a></li>
+	        <li><a href="register">Εγγραφή</a></li>
 	      </ul>
 	    </div>
 	  </div>
@@ -57,6 +57,7 @@
 
     <footer class="footer">
     	<ul class="footer-links">
+    	    <li><a href="contact">Επικοινωνία</a></li>
     		<li><a href="#">Github</a></li>
     		<li><a href="#">Twitter</a></li>
     		<li><a href="#">Facebook</a></li>
