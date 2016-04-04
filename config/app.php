@@ -160,6 +160,8 @@ return [
 
         'Barryvdh\Debugbar\ServiceProvider',
 
+        'Illuminate\Html\HtmlServiceProvider',
+
     ],
 
     /*
@@ -209,6 +211,8 @@ return [
         'Debugbar'  => 'Barryvdh\Debugbar\Facade',
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+        'Form'      => 'Illuminate\Html\FormFacade',
+        'Html'      => 'Illuminate\Html\HtmlFacade',
 
     ],
 

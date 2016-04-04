@@ -9,7 +9,7 @@
         "laravel/framework": "5.2.*",
         "doctrine/dbal": "v2.5.4",
         "barryvdh/laravel-debugbar": "^2.1",
-        "illuminate/html": "5.0.*",
+        "illuminate/html": "5.*",
         "fabpot/goutte": "^3.1",
         "laravelcollective/html": "^5.2"        
     },

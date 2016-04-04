@@ -13,7 +13,7 @@
     <!-- Optional theme -->
   <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
     <!--Personal css styles-->
-  <link rel="stylesheet" href="css/bitsource.css">
+  <link rel="stylesheet" href="/bitsource/public/css/bitsource.css">
   
 </head>
 <body>
@@ -32,22 +32,22 @@
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="welcome">Κεντρική<span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a href="/Bitsource/public/welcome">Κεντρική<span class="sr-only">(current)</span></a></li>
 	        <li><a href="#">Ιστολόγιο</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Αναζήτηση<span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="tasks_list">Έργα</a></li>
+	            <li><a href="/Bitsource/public/tasks_list">Έργα</a></li>
 	            <li class="divider"></li>
-	            <li><a href="users_list">Επαγγελματίες</a></li>
+	            <li><a href="/Bitsource/public/users_list">Επαγγελματίες</a></li>
 	            <li class="divider"></li>
-	            <li><a href="jobs_list">Εργασία</a></li>
+	            <li><a href="/Bitsource/public/jobs_list">Εργασία</a></li>
 	          </ul>
 	        </li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="login">Σύνδεση</a></li>
-	        <li><a href="register">Εγγραφή</a></li>
+	        <li><a href="/Bitsource/public/login">Σύνδεση</a></li>
+	        <li><a href="/Bitsource/public/register">Εγγραφή</a></li>
 	      </ul>
 	    </div>
 	  </div>

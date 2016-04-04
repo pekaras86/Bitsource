@@ -18,34 +18,39 @@ Route::get('/', function () {
 */
 
 
+//Home Page
 //Route::get('/','HomePage@index');
 Route::get('welcome','HomePage@index');
 
-//login - register
+
+
+//Login - Register
 Route::get('login','LoginController@show');
-
 Route::get('register','RegisterController@show');
+//Route::get('register', 'Auth\AuthController@getRegis');  // show the register form
+//Route::post('register', 'Auth\AuthController@postRegister'); // send register data via post method
 
-//lists
+
+
+//Lists
 Route::get('users_list','UsersListController@show');
-
 Route::get('jobs_list','JobsListController@show');
-
 Route::get('tasks_list','TasksListController@show');
 
-//descriptions
+
+
+//Descriptions
 Route::get('task_description','TaskDescriptionController@show');
-
-Route::get('user_profile', 'UserProfileController@show');
-
 Route::get('job_description', 'JobDescriptionController@show');
+Route::resource('users', 'UserProfileController');
 
-Route::get('update_profile', 'UpdateProfileController@show');
 
-//contact form
+
+//Contact Form
 Route::get('contact', ['as' => 'contact', 'uses' => 'AboutController@create']);
-
 Route::post('contact', ['as' => 'contact_store', 'uses' => 'AboutController@store']); 
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +66,5 @@ Route::post('contact', ['as' => 'contact_store', 'uses' => 'AboutController@stor
 Route::group(['middleware' => ['web']], function () {
     //
 });
+
+
