@@ -55,7 +55,7 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'bitsourceii'),
+            'database'  => env('DB_DATABASE', 'bitsource3'),
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', 'KaraOglan86'),
             'charset'   => 'utf8',

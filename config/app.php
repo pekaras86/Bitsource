@@ -157,10 +157,9 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
         'Barryvdh\Debugbar\ServiceProvider',
-
         'Illuminate\Html\HtmlServiceProvider',
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -213,6 +212,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Form'      => 'Illuminate\Html\FormFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',
+        'Image'     => Intervention\Image\Facades\Image::class,
 
     ],
 

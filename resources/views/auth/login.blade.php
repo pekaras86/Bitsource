@@ -4,34 +4,73 @@
 
 <div class="push-login-page">
 
-    <form class="form-horizontal sign-in-form">
-      <fieldset>
-        <legend>Συνδεθείτε στο λογαριασμό σας</legend>
-        <div class="form-group">
-          <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-          <div class="col-lg-10">
-            <input class="form-control" id="inputEmail" placeholder="Email" type="email">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword" class="col-lg-2 control-label">Κωδικός</label>
-          <div class="col-lg-10">
-            <input class="form-control" id="inputPassword" placeholder="Κωδικός" type="password">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Να με θυμάσαι
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-lg-10 col-lg-offset-2">
-            <button type="submit" class="btn btn-primary">ΣΥΝΔΕΣΗ </button>
-          </div>
-        </div>
-      </fieldset>
-    </form>
+<div class="login-form">
 
-</div> <!-- /push-freelancer-profile -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Σύνδεση</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                        {!! csrf_field() !!}
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">E-Mail</label>
+
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Κωδικός</label>
+
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" name="password">
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember"> Να παραμείνω συνδεδεμένος
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-sign-in"></i> ΣΥΝΔΕΣΗ
+                                </button>
+
+                                <a class="btn btn-link login-btn" href="{{ url('/password/reset') }}">Ξεχάσατε τον κωδικό σας;</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div> <!--/login-form-->
+
+</div> <!--/push-login-page-->
 
 @endsection

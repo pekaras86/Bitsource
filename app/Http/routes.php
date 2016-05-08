@@ -11,45 +11,9 @@
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('home.welcome');
-});
-*/
-
 
 //Home Page
-//Route::get('/','HomePage@index');
-Route::get('welcome','HomePage@index');
-
-
-
-//Login - Register
-Route::get('login','LoginController@show');
-Route::get('register','RegisterController@show');
-//Route::get('register', 'Auth\AuthController@getRegis');  // show the register form
-//Route::post('register', 'Auth\AuthController@postRegister'); // send register data via post method
-
-
-
-//Lists
-Route::get('users_list','UsersListController@show');
-Route::get('jobs_list','JobsListController@show');
-Route::get('tasks_list','TasksListController@show');
-
-
-
-//Descriptions
-Route::get('task_description','TaskDescriptionController@show');
-Route::get('job_description', 'JobDescriptionController@show');
-Route::resource('users', 'UserProfileController');
-
-
-
-//Contact Form
-Route::get('contact', ['as' => 'contact', 'uses' => 'AboutController@create']);
-Route::post('contact', ['as' => 'contact_store', 'uses' => 'AboutController@store']); 
-
+Route::get('search', 'HomeSearchController@index');  //home page without sign in
 
 
 /*
@@ -63,8 +27,36 @@ Route::post('contact', ['as' => 'contact_store', 'uses' => 'AboutController@stor
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
+Route::group(['middleware' => 'web'], function () {
+    
+    Route::auth();  // ypefthino gia ta register kai login
+    
+    Route::get('/home', 'HomeController@index');
+
+    //Contact Form
+    Route::get('contact', ['as' => 'contact', 'uses' => 'AboutController@create']);  
+    Route::post('contact', ['as' => 'contact_store', 'uses' => 'AboutController@store']); 
+
+    //Lists
+    Route::get('users_list','UsersListController@show'); 
+    Route::get('jobs_list','JobsListController@show');  
+    Route::get('tasks_list','TasksListController@show');  
+
+    //Descriptions
+    Route::get('task_description','TaskDescriptionController@show'); 
+    Route::get('job_description', 'JobDescriptionController@show'); 
+    Route::resource('profile', 'UserProfileController');
+    
+    //Test Route
+    /*Route::post('submit', function() {
+        
+    });*/
+
+
 });
+
+
+
+
 
 

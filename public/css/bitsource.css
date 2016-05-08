@@ -42,7 +42,7 @@ footer p {
     color: white;
 }
 
-/********************Home Page (without sign-in)********************/
+/********************Search 'Home' Page (without sign-in)********************/
 .hp-form {
     width: 50%;
     margin: auto;
@@ -85,16 +85,41 @@ footer p {
     background-size: 100% 110%;
 }
 
+/******************** Home Page (after sign-in)********************/
+
+.push-home-page {
+    min-height: 470px;
+}
+
+
+
+
 /********************Login page********************/
 
 .push-login-page {
-    min-height: 400px;
+    min-height: 450px;
 }
 
-.sign-in-form {
-    width: 50%;
-    margin:auto;
-    margin-top: 10%;
+.login-form {
+    margin-top: 5%;
+}
+
+.login-btn {
+    text-transform: lowercase;
+}
+
+.login-btn::first-letter {
+    text-transform: uppercase;
+}
+
+/********************Send Password page********************/
+
+.send-password-page {
+    margin-top: 5%;
+}
+
+.push-send-password {
+    min-height: 450px;
 }
 
 /********************Register page********************/
@@ -104,8 +129,6 @@ footer p {
 }
 
 .register-form {
-    width: 50%;
-    margin:auto;
     margin-top: 5%;
 }
 
@@ -534,24 +557,6 @@ footer p {
     
 }
 
-.update-user-photo {
-    width: 200px;
-    height: 150px;
-    float: left;
-}
-
-.default-user-img {
-    width:60%;
-    height: 70%;
-    margin-left: 40px;
-    margin-top: 10px;
-}
-
-.avatar-btn {
-    margin-left: 40px;
-    margin-top: 10px;
-}
-
 .update-user-category {
     width: 710px;
     height: 150px;
@@ -623,7 +628,58 @@ footer p {
     margin-bottom: 40px;
 }
 
+/*avatar area*/
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
 
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.fileUpload {
+    margin-left: 45px;
+}
+
+.update-user-photo {
+    width: 200px;
+    height: 150px;
+    float: left;
+}
+
+.default-user-img {
+    width: 130px;
+    height: 130px;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.update-portfolio-section {
+    margin-top: 40px;
+}
+
+#addPortfolio {
+    height        : 12px;
+    width         : 12px;
+    margin-left   : 5px;
+    margin-bottom : 10px;
+    cursor: pointer; cursor: hand; 
+}
+
+#removePortfolio {
+    float         : right;
+    cursor: pointer; cursor: hand; 
+}
 
 /********************Job description page********************/
 

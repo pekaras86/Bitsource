@@ -28,7 +28,8 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/welcome';
+    protected $redirectTo          = '/home';  //redirect after log-in (only)
+    protected $redirectAfterLogout = '/search';
 
     /**
      * Create a new authentication controller instance.
@@ -49,8 +50,9 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name'     => 'required|max:255',
+            'surname'  => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -63,10 +65,14 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $this->redirectTo = '/profile/create';  // redirect after register (only)
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'uFname'   => $data['name'],
+            'uLname'   => $data['surname'],
+            'email'    => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
+
 }

@@ -9,7 +9,9 @@ use App\Http\Controllers\Controller;
 
 class TasksListController extends Controller
 {
-    function show() {
+    public function show() {
     	return view("lists.tasks_list");
     }
+
+    
 }
