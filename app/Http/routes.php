@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -48,10 +50,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('profile', 'UserProfileController');
     
     //Test Route
-    /*Route::post('submit', function() {
-        
-    });*/
+    /*Route::post('category', function() {
 
+    });*/
 
 });
 

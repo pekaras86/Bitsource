@@ -12,8 +12,6 @@
     {!! Form::open(array('route' => 'profile.store', 'class' => 'update-profile-page', 'id' => 'faker2', 'files' => true )) !!}
 	    
 	    <div class="update-photo-category-section">
-
-	    <input type="hidden" id="token" value="{{ csrf_token() }}">
 	        
 			<div class="update-user-photo">
 				<img src="/bitsource/public/images/avatar.png" alt="..." class="img-circle default-user-img" id="blah">
@@ -168,6 +166,7 @@
 
     {!! Form::close() !!}
 
+
 </div> <!-- /push-update-profile -->
 
 @endsection
@@ -234,43 +233,20 @@ $(document).ready(function () {
 
     });  // end click
 
-    
 
-    $('.update-portfolio').on('click', '#removePortfolio', function(e) {  // Remove Portfolio
+    
+    
+    // Remove Portfolio
+    $('.update-portfolio').on('click', '#removePortfolio', function(e) {  
       e.preventDefault();
       $(this).parents('.new-portfolio').remove();
     });  //end on
 
 
 
-    // *********************** AVATAR *****************************//
-       $(".update-user-button").click(function(){
-$.ajax({
-      url:'{{ action('UserProfileController@store') }}',
-      data:{
-      	'_token': token,
-        avatar:new FormData($("#faker2")[0]),
-        },
-      dataType:'json',
-      async:false,
-      type:'post',
-      processData: false,
-      contentType: false,
-      success:function(response){
-        console.log(response);
-      },
-      error:function(){ 
-        alert("error!!!!");
-    }
-    });
- });
-    // *********************** /AVATAR *****************************//
-	
-      
-
-    
-    
-    $('form').on('submit', function(e) {
+     
+      // Transfer text inputs via ajax
+    /*$('form').on('submit', function(e) {
     	
     	e.preventDefault();
 
@@ -304,7 +280,28 @@ $.ajax({
     	 function(data, status){
     		console.log("Data: " + data + "\nStatus: " + status)
     	 });
-    });
+    });*/
+
+
+    
+
+    // Transfer profile image via ajax
+    $('form').on('submit', function(e) {
+    $.ajax({
+          url         :'/Bitsource/public/profile',
+          data        : {
+            avatar : new FormData($("#faker2")),
+            },
+          dataType    : 'json',
+          async       : false,
+          type        : 'post',
+          processData : false,
+          contentType : false,
+          success     : function(response){
+            console.log(response);
+          },
+        });
+     }); // end image on submi
 
 });  //end ready 
 

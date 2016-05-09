@@ -46,8 +46,8 @@ class UserProfileController extends Controller
      */
     public function store(UserFormRequest $request)
     {
-        /*
         
+        /*
         // Save avatar 
         if($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
@@ -57,7 +57,7 @@ class UserProfileController extends Controller
         } else {
             $avatarPath = base_path() . '/public/images/avatars/avatar';
         }
-
+ 
 
         
         // Create profile and save personal data
@@ -81,8 +81,8 @@ class UserProfileController extends Controller
         $user_primary    = \Auth::user()->id;
          // Primary key of the profile
         $profile_primary = \DB::table('profiles')->where('uId',$user_primary)->value('id');
-        
         */
+        
         /*
         $title       = $request->title;
         $salary      = $request->salary;
@@ -92,19 +92,15 @@ class UserProfileController extends Controller
         $description = $request->description;
         $category    = $request->category;
         */
+
+
         $avatar = $request->file('avatar');
-        $imageName = time() . '-' . $avatar->getClientOriginalName();
-        $avatarPath = $request->file('avatar')->move(
+            $imageName = time() . '-' . $avatar->getClientOriginalName();
+            $avatarPath = $request->file('avatar')->move(
                 base_path() . '/public/images/avatars/', $imageName);
+        
 
-        
-            
-            
 
-        
-        
-        
-            
         /*
          // Portfolio Links (via Ajax)
         $linksArray = $request->newLink;  
@@ -130,8 +126,8 @@ class UserProfileController extends Controller
         
         
         // Redirect to profile page
-        //return \Redirect::route('profile.create');
-        return response($avatar);
+        return \Redirect::route('profile.create');
+        //return response($avatarPath);
         
     }   
 
