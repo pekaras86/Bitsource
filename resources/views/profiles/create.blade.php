@@ -69,7 +69,7 @@
 	    	
               <div class="form-group update-title">
               	  <label for="updateInputTitle"><b>ΤΙΤΛΟΣ ΕΡΓΑΣΙΑΣ</b></label>
-              	  <input type="text" name="title" class="form-control" id="updateInputTitle" placeholder="π.χ Web Designer ; Mobile Developer..."> 
+              	  <input type="text" name="title" class="form-control" id="updateInputTitle" placeholder="π.χ Web Designer ; Mobile Developer..." > 
               </div>
 
 	    </div> <!--/update-title-section-->
@@ -104,7 +104,8 @@
 	    	
               <div class="form-group update-user-skills">
               	  <label for="updateInputSkills"><b>IKANOTHTEΣ</b></label>
-              	  <input type="text" class="form-control" name="skills" id="updateInputSkills" placeholder="Πληκτρολογήστε εδώ για να προσθέσετε..."> 
+              	  <input type="hidden" class="form-control" name="skills" id="updateInputSkills" placeholder="Πληκτρολογήστε εδώ για να προσθέσετε..."> 
+                  <textarea id="textarea" class="example" rows="2"></textarea>
               </div>
 
 	    </div> <!--/update-user-skills-section-->
@@ -164,7 +165,10 @@
 	        <input type="submit" value="ΑΠΟΘΗΚΕΥΣΗ" class="btn btn-primary btn-lg">
         </div>
 
+
     {!! Form::close() !!}
+
+    
 
 
 </div> <!-- /push-update-profile -->
@@ -207,7 +211,7 @@ $(document).ready(function () {
 	$('#addendumPorfolio').click(function() {  // 'Prosthiki Portfolio'
       
       // piase tis times twn fields
-      var link = $('#linkModal').val();
+      var link        = $('#linkModal').val();
       var description = $('#descriptionModal').val();
       if (link === '' || description === '') {
         return false;
@@ -217,6 +221,8 @@ $(document).ready(function () {
 	  var portfolioHTML = '<ul class="new-portfolio">';
 	  portfolioHTML    += '<li class="port-li"><a href="#" class="port-link"></a><a href="#" id="removePortfolio">Αφαίρεση</a></li>';
 	  portfolioHTML    += '<p class="port-description"></p>';
+      portfolioHTML    += '<input type="hidden" name="portLink[]" value="" id="portLinkHidden">';
+      portfolioHTML    += '<input type="hidden" name="portDesc[]" value="" id="portDescHidden">';
 	  portfolioHTML    += '</ul>';
 
 	  // perna tis times sto neo portfolio
@@ -224,6 +230,8 @@ $(document).ready(function () {
 	  $newPortfolio.find('.port-link').text(link);
 	  $newPortfolio.find('.port-link').attr('href', link);
 	  $newPortfolio.find('.port-description').text(description);
+      $newPortfolio.find('#portLinkHidden').val(link);
+      $newPortfolio.find('#portDescHidden').val(description);
 	  
       //vale to portfolio stin oura
 	  $('.update-portfolio').prepend($newPortfolio);
@@ -244,9 +252,9 @@ $(document).ready(function () {
 
 
 
-     
-      // Transfer text inputs via ajax
-    /*$('form').on('submit', function(e) {
+    /* 
+    // Transfer text inputs via ajax
+    $('form').on('submit', function(e) {
     	
     	e.preventDefault();
 
@@ -280,28 +288,75 @@ $(document).ready(function () {
     	 function(data, status){
     		console.log("Data: " + data + "\nStatus: " + status)
     	 });
-    });*/
-
+    });  // end transfer input data via ajax
+    */
 
     
-
+    /*
     // Transfer profile image via ajax
     $('form').on('submit', function(e) {
-    $.ajax({
-          url         :'/Bitsource/public/profile',
-          data        : {
-            avatar : new FormData($("#faker2")),
+       
+       e.preventDefault();
+
+        $.ajax({
+              url         :'/Bitsource/public/profile',
+              data        : {
+                avatar : new FormData($("#faker2"))
+                },
+              dataType    : 'json',
+              async       : false,
+              type        : 'post',
+              processData : false,
+              contentType : false,
+              success     : function(response){
+                console.log(response);
+              },
+            });
+     }); // end send image via ajax on submit
+     */
+
+    // auto complete skills tags
+    $('#textarea')
+        .textext({
+            html : {
+               hidden:('<input type="hidden" name="tags" />')
             },
-          dataType    : 'json',
-          async       : false,
-          type        : 'post',
-          processData : false,
-          contentType : false,
-          success     : function(response){
-            console.log(response);
-          },
+            plugins : 'tags autocomplete filter',
+            useSuggestionsToFilter : true
+        })
+        .bind('getSuggestions', function(e, data)
+        {
+            var list = [
+                    'HTML',
+                    'CSS',
+                    'Javascript',
+                    'PHP',
+                    'C#',
+                    'Python',
+                    'Ruby',
+                    'Go',
+                    'Node.js',
+                    'Ruby on Rails',
+                    'Java',
+                    'Android',
+                    'MySQL',
+                    'AngularJS',
+                    'React',
+                    'jQuery',
+                    'Bootstrap',
+                    'Foundation',
+                    'MongoDB',
+                ],
+                textext = $(e.target).textext()[0],
+                query = (data ? data.query : '') || '';
+
+            $(this).trigger(
+                'setSuggestions',
+                { result : textext.itemManager().filter(list, query) }
+            );
         });
-     }); // end image on submi
+
+        
 
 });  //end ready 
 

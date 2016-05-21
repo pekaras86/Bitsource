@@ -24,9 +24,9 @@ class UserFormRequest extends Request
     public function rules()
     {
         return [
-            //'description' => 'required',
-            //'category'    => 'required',
-            //'title'       => 'required',
+            'description' => 'required',
+            'category'    => 'required',
+            'title'       => 'required',
         ];
     }
 }

@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Freelancer extends Model
 {
+
+    protected $fillable = [
+        'pId',
+    ];
+
     public function awards() {
     	return $this->hasMany('App\Task');
     }

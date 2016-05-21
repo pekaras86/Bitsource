@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
+
+    protected $fillable = [
+        'pId',
+    ];
+
     public function tasks() {
     	return $this->hasMany('App\Task');
     }

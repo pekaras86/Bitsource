@@ -681,6 +681,19 @@ footer p {
     cursor: pointer; cursor: hand; 
 }
 
+/*Skills area*/
+#textarea {
+    width: 920px;
+}
+
+.text-button {
+    height: 29px !important;
+}
+
+.text-label {
+    font-size: 15px;
+}
+
 /********************Job description page********************/
 
 .push-job-description {

@@ -12,10 +12,15 @@ class Profile extends Model
     ];
 
     public function user() {
-    	return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'uId', 'id');
     }
 
     public function portfolios() {
-        return $this->hasMany('App\Portfolio');
+        return $this->hasMany('App\Portfolio', 'pId');
+    }
+
+    public function skills()
+    {
+        return $this->belongsToMany('App\Skill', 'profile_skill', 'pId', 'sId');
     }
 }

@@ -19,9 +19,24 @@
   <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
     <!--Personal css styles-->
   <link rel="stylesheet" href="/bitsource/public/css/bitsource.css">
-      <!--Dropzone.css-->
+    <!--Dropzone.css-->
   <link rel="stylesheet" href="/bitsource/public/css/dropzone.css">
-  
+    <!-- JQuery UI CSS -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <!-- Tag it! -->
+  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+    <!-- Tag it -->
+  <link href="/bitsource/public/css/jquery.tagit.css" rel="stylesheet" type="text/css">
+    <!-- Text ext -->
+  <link href="/bitsource/public/css/textext.core.css" rel="stylesheet" type="text/css">
+  <link href="/bitsource/public/css/textext.plugin.arrow.css" rel="stylesheet" type="text/css">
+  <link href="/bitsource/public/css/textext.plugin.autocomplete.css" rel="stylesheet" type="text/css">
+  <link href="/bitsource/public/css/textext.plugin.clear.css" rel="stylesheet" type="text/css">
+  <link href="/bitsource/public/css/textext.plugin.focus.css" rel="stylesheet" type="text/css">
+  <link href="/bitsource/public/css/textext.plugin.prompt.css" rel="stylesheet" type="text/css">
+  <link href="/bitsource/public/css/textext.plugin.tags.css" rel="stylesheet" type="text/css">
+
+
 </head>
 <body>
   <div class="page-wrapper">
@@ -92,12 +107,28 @@
    </div> <!--/page-wrapper-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <!-- JQuery UI -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+    <!-- Tag it! -->
+  <script src="/bitsource/public/javascript/tag-it.js" type="text/javascript" charset="utf-8"></script> 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!-- Dropzone.js -->
   <script src="/bitsource/public/javascript/dropzone.js"></script>
     <!-- Ajax setup -->
   <script src="/bitsource/public/javascript/ajaxsetup.js"></script>
+     <!-- Text ext -->
+  <script src="/bitsource/public/javascript/textext.core.js"></script>
+  <script src="/bitsource/public/javascript/textext.plugin.ajax.js"></script>
+  <script src="/bitsource/public/javascript/textext.plugin.arrow.js"></script>
+  <script src="/bitsource/public/javascript/textext.plugin.autocomplete.js"></script>
+  <script src="/bitsource/public/javascript/textext.plugin.clear.js"></script>
+  <script src="/bitsource/public/javascript/textext.plugin.filter.js"></script>
+  <script src="/bitsource/public/javascript/textext.plugin.focus.js"></script>
+  <script src="/bitsource/public/javascript/textext.plugin.prompt.js"></script>
+  <script src="/bitsource/public/javascript/textext.plugin.suggestions.js"></script>
+  <script src="/bitsource/public/javascript/textext.plugin.tags.js"></script>
+     
     <!-- Here place your custom javascript -->
   @yield('js')
 
