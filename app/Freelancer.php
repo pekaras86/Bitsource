@@ -22,4 +22,8 @@ class Freelancer extends Model
     public function bids() {
     	return $this->belongsToMany('App\Task');
     }
+
+    public function profile() {
+        return $this->belongsTo('App\Profile', 'pId', 'id');
+    }
 }

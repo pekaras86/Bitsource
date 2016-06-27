@@ -10,6 +10,7 @@ use App\Http\Requests\UserFormRequest;
 use App\Profile;
 use App\Portfolio;
 use App\User;
+use App\Skill;
 
 
 class UserProfileController extends Controller
@@ -17,7 +18,7 @@ class UserProfileController extends Controller
     public function __construct()
     {   // το middleware 'auth', θα εφαρμοστεί σε όλές τις μεθόδους του controller,
         // εκτός απο τις index() και show()
-        $this->middleware('auth', ['except' => ['index'], ['show']]);
+        $this->middleware('auth', ['except' => ['show'], ['index']]);
     }
     /**
      * Display a listing of the resource.
@@ -26,7 +27,7 @@ class UserProfileController extends Controller
      */
     public function index()
     {      
-        return view('profiles.index');
+        return view('home');
     }
 
     /**
@@ -88,7 +89,7 @@ class UserProfileController extends Controller
 
         // Portfolio links and descriptions
         $linksArray = $request->get('portLink');
-        $descArray = $request->get('portDesc');
+        $descArray  = $request->get('portDesc');
         $countDescs = count($descArray);  // metritis portfolio
 
 
@@ -156,8 +157,7 @@ class UserProfileController extends Controller
         
 
         // Redirect
-        return \Redirect::route('profile.show');
-
+        return redirect()->route('profile.show', [$user_primary]);
         
     }   
 
@@ -169,9 +169,9 @@ class UserProfileController extends Controller
      */
     public function show($id)
     {
-        $skill = \App\Skill::find(1);
-        return response($skill);
-        //return view('profiles.show')->with('user', $user);
+        $user = \App\User::find($id);
+        //return response($user);
+        return view('profiles.show')->with('user', $user);
     }
 
     /**
@@ -182,7 +182,12 @@ class UserProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(\Auth::user()->id != $id) {
+            return view('home');
+        }
+
+        $user = \App\User::find($id);
+        return view('profiles.edit')->with('user',$user);
     }
 
     /**
@@ -194,7 +199,80 @@ class UserProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+         // Primary key of the user 
+        $user_primary    = \Auth::user()->id;
+         // Primary key of the profile
+        $profile_primary = \DB::table('profiles')->where('uId',$user_primary)->value('id');
+
+
+        // Piase tis times apo tis formes pou einai na ginoun update
+        $location    = $request->get('location');
+        $telephone   = $request->get('telephone');
+        $description = $request->get('description');
+        $salary      = $request->get('salary');
+        $title       = $request->get('title');
+        $category    = $request->get('category');
+        
+        if($request->hasFile('avatar')) {
+          $avatar = $request->file('avatar');
+          $imageName = time() . '-' . $avatar->getClientOriginalName();
+          $avatarPath = $request->file('avatar')->move(
+                base_path() . '/public/images/avatars/', $imageName);
+        } else {
+          $imageName = \Auth::user()->profile->pAvatar;
+        }
+
+        $linksArray = $request->get('portLink');
+        $descArray  = $request->get('portDesc');
+        $countDescs = count($descArray);  // metritis portfolio
+
+         // apothikefsi 
+         \DB::table('profiles')
+            ->where('id', $profile_primary)
+            ->update(['pSalary'      => $salary,
+                      'pLocation'    => $location,
+                      'pTelephone'   => $telephone,
+                      'pDescription' => $description,
+                      'pTitle'       => $title,
+                      'pAvatar'      => $imageName,
+                      'pCategory'    => $category,
+                      ]);
+
+          \DB::table('portfolios')->where('pId', '=', $profile_primary)->delete(); //svinw to palio portfolio
+          
+          // Create Portfolio records
+        for( $i=0; $i < $countDescs; $i++ ) {
+        
+            $portfolio = new \App\Portfolio(array(
+                'pId'           => $profile_primary,
+                'pLink'         => $linksArray[$i],
+                'pDescription'  => $descArray[$i]  
+            ));
+            
+            $portfolio->save();
+        
+        } // end for
+
+
+        //insert skills
+        \DB::table('profile_skill')->where('pId', '=', $profile_primary)->delete(); //svinw to palio portfolio
+        
+        $tags      = $request->get('tags');  //pare ta skills tags
+        $new_tags  = json_decode($tags, true);  //kanta decode
+        $countTags = count($new_tags);  // metritis skills
+        
+        
+        // Insert skills in pivot table (profile_skill)
+        for ($i=0; $i<$countTags; $i++) {
+
+          $skillId = \DB::table('skills')->where('sName', $new_tags[$i])->value('id');
+          $profiles = Profile::find($profile_primary);
+          $profiles->skills()->attach($skillId);
+        
+        } 
+
+        return redirect()->route('profile.show', [$user_primary]);
     }
 
     /**

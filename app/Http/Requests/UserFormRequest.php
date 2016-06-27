@@ -29,4 +29,5 @@ class UserFormRequest extends Request
             'title'       => 'required',
         ];
     }
+
 }

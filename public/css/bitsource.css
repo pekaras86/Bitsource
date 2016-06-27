@@ -454,6 +454,30 @@ footer p {
     float: left;
 }
 
+.freelancer-description-header img {
+    float: left;
+}
+
+.desc-header-title {
+    width: 680px;
+}
+
+.glyphicon-user {
+    /*margin-left: 10px;*/
+}
+
+.description-just {
+    text-align: justify;
+}
+
+.desc-skills {
+    color: blue;
+}
+
+.desc-com {
+    margin-top:-12px;
+}
+
 .freelancer-description-body {
     border-style: solid;
     border-width: 1px;
@@ -476,10 +500,29 @@ footer p {
     float: right;
     background-color: cyan;
     width: 260px;
-    height: 300px;
+    /*height: 300px;*/
     border-radius: 5px;
     text-align: center;
     box-shadow: 7px 7px 5px #888888;
+    padding-bottom: 20px;
+}
+
+.desc-port {
+    text-align: justify;
+}
+
+.edit-desc-btn {
+    float: right;
+}
+
+.com-desc-btn {
+   
+    width: 680px;
+    float:left;
+}
+
+.com-btn {
+    float: right;
 }
 
 .freelancer-contact img {

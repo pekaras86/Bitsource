@@ -50,7 +50,11 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="{{ url('/') }}">Bitsource</a>
+        @if (Auth::guest())
+	      <a class="navbar-brand" href="{{ url('/search') }}">Bitsource</a>
+        @else
+        <a class="navbar-brand" href="{{ url('/home') }}">Bitsource</a>
+        @endif
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 	      <ul class="nav navbar-nav">
@@ -84,6 +88,8 @@
 		                </a>
 
 		                <ul class="dropdown-menu" role="menu">
+                        <li><a href="/Bitsource/public/profile/{{ Auth::user()->id }}"><i class="fa fa-btn glyphicon glyphicon-user"></i> Προφίλ</a></li>
+                        <li><a href="/Bitsource/public/profile/{{ Auth::user()->id }}/edit"><i class="fa fa-btn glyphicon glyphicon-pencil"></i> Επεξεργασία</a></li>
 		                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Αποσύνδεση</a></li>
 		                </ul>
 		            </li>

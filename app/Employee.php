@@ -18,4 +18,8 @@ class Employee extends Model
     public function reviews() {
     	return $this->belongsToMany('App\Freelancer');
     }
+
+    public function profile() {
+        return $this->belongsTo('App\Profile', 'pId', 'id');
+    }
 }
