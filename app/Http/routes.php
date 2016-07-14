@@ -50,10 +50,12 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('profile', 'UserProfileController');
 
     Route::post('rate', 'UserRatingController@setRating');
+
+    Route::resource('project_task', 'ProjectTaskController');
     
     //Test Route
-    /*Route::post('category', function() {
-
+    /*Route::get('task', function() {
+      return view('tasks.create');
     });*/
 
 });

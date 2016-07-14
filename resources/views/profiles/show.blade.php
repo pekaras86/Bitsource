@@ -190,6 +190,7 @@
 		      <button type="button" class="btn btn-default" data-dismiss="modal">ΑΚΥΡΟ</button>
 		      <button type="button" class="btn btn-primary" id="addReview">ΠΡΟΣΘΗΚΗ</button>
 		  </div>
+		  <div class="rating-warning">Τα πεδία <b>'Τίτλος Έργου'</b> και <b>'Σχόλια'</b> είναι υποχρεωτικά!</div>
 	    </div>
 
 	  </div>
@@ -223,7 +224,7 @@
 		                <div class="freelancer-rating">
 		        	        <img src="/Bitsource/public/images/avatars/{{$freelancer_comment->pAvatar}}" class="img-responsive img-circle freelancer-rating-photo" alt="Responsive image">
 		                    <a href="/Bitsource/public/profile/{{$freelancer_comment->uId}}"><h7>{{$freelancer_comment->uLname}} {{$freelancer_comment->uFname}} </h7></a>
-		                    <img src="/Bitsource/public/images/stars.png" class="img-responsive freelancer-rating-stars" alt="Responsive image">
+		                    <div class="freelancer-rating-stars">Βαθμολογία: {{$freelancer_comment->userRating}}</div>
 		                    <a href="#"><h5>{{$freelancer_comment->rTitle}}</h5></a> 
 		                    <p>{{$freelancer_comment->rComment}}</p>
 		               </div>
@@ -241,7 +242,7 @@
 			            <div class="freelancer-rating">
 		        	        <img src="/Bitsource/public/images/avatars/{{$employee_comment->pAvatar}}" class="img-responsive img-circle freelancer-rating-photo" alt="Responsive image">
 		                    <a href="/Bitsource/public/profile/{{$employee_comment->uId}}"><h7>{{$employee_comment->uLname}} {{$employee_comment->uFname}} </h7></a>
-		                    <img src="/Bitsource/public/images/stars.png" class="img-responsive freelancer-rating-stars" alt="Responsive image">
+                            <div class="freelancer-rating-stars">Βαθμολογία: {{$employee_comment->userRating}}</div>
 		                    <a href="#"><h5>{{$employee_comment->rTitle}}</h5></a> 
 		                    <p>{{$employee_comment->rComment}}</p>
 		               </div>
@@ -261,7 +262,7 @@
 	                <div class="freelancer-rating">
 	        	        <img src="/Bitsource/public/images/avatars/{{$freelancer_comment->pAvatar}}" class="img-responsive img-circle freelancer-rating-photo" alt="Responsive image">
 	                    <a href="/Bitsource/public/profile/{{$freelancer_comment->uId}}"><h7>{{$freelancer_comment->uLname}} {{$freelancer_comment->uFname}} </h7></a>
-	                    <img src="/Bitsource/public/images/stars.png" class="img-responsive freelancer-rating-stars" alt="Responsive image">
+		                <div class="freelancer-rating-stars">Βαθμολογία: {{$freelancer_comment->userRating}}</div>
 	                    <a href="#"><h5>{{$freelancer_comment->rTitle}}</h5></a> 
 	                    <p>{{$freelancer_comment->rComment}}</p>
 	               </div>
@@ -277,7 +278,7 @@
 		            <div class="freelancer-rating">
 	        	        <img src="/Bitsource/public/images/avatars/{{$employee_comment->pAvatar}}" class="img-responsive img-circle freelancer-rating-photo" alt="Responsive image">
 	                    <a href="/Bitsource/public/profile/{{$employee_comment->uId}}"><h7>{{$employee_comment->uLname}} {{$employee_comment->uFname}} </h7></a>
-	                    <img src="/Bitsource/public/images/stars.png" class="img-responsive freelancer-rating-stars" alt="Responsive image">
+		                <div class="freelancer-rating-stars">Βαθμολογία: {{$employee_comment->userRating}}</div>
 	                    <a href="#"><h5>{{$employee_comment->rTitle}}</h5></a> 
 	                    <p>{{$employee_comment->rComment}}</p>
 	               </div>
@@ -399,7 +400,7 @@ $(document).ready(function () {
 
 
   
-  
+  $('.rating-warning').hide();
 
 
 @if(Auth::user())  //to rating isxyei mono gia egegramenous xristes
@@ -407,12 +408,18 @@ $(document).ready(function () {
   // send rating
   $("#addReview").click(function () {
 
-  	
-  	
   	var $rateYo = $("#rateYo").rateYo();
+
+
     
+    //elegxos gia to ean exei symplirosei ta ypoxreotika pedia apo ti forma aksiologisis
+    if($('#reviewTitle').val() === '' && $('#reviewComment').val() === ''){
+    	
+    	$('.rating-warning').show();
     
-    
+    } else {
+
+
     // typos xristi profile (owner of profile)
     @if ($user->profile->pCategory === 'freelancer') 
       var cat = {{ $cat = 1 }}
@@ -473,7 +480,7 @@ $(document).ready(function () {
      
      $('#CoModal').modal('hide');
 
-
+  }//end if
     
   });  // end click
 

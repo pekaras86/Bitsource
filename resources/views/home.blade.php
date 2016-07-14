@@ -4,21 +4,31 @@
 
 <div class="push-home-page">
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-                 
-                  
 
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
-        </div>
+
+  
+  <div class="home-icons">    
+    <div class="home-icon-1">   
+      <a href="#"><img src="/Bitsource/public/images/project_task.png" class="home-icon"></a>
+      <span><b>Ανάρτηση Αγγελίας</b></span>
+    </div>   
+
+    <div class="home-icon-2">   
+      <a href="#"><img src="/Bitsource/public/images/aggelies.png" class="home-icon"></a>
+      <span><b>Ανάρτηση Project/Task</b></span>
     </div>
-</div>
+
+    <div class="home-icon-3">   
+      <a href="#"><img src="/Bitsource/public/images/oi_anartiseis_mou.png" class="home-icon"></a>
+      <span><b>Οι αναρτήσεις μου</b></span>
+    </div>
+  </div>      
+  
+
+  
+
+
+
 
 </div> <!--/push-home-page-->
 

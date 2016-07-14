@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\RateRequest;
 
 use App\Freelancer;
 use App\Comment;
 
 class UserRatingController extends Controller
 {
-    function setRating(Request $request) {
+    function setRating(RateRequest $request) {
     	
     	// pare ta stoixeia tis aksiologisis me ajax
     	$revTitle = $request->get('revTitle');   // titlos ergou

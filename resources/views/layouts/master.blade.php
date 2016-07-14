@@ -71,9 +71,9 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Αναζήτηση<span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="{{ url('/tasks_list') }}">Έργα</a></li>
+	            <li><a href="{{ url('/tasks_list') }}">Projects/Tasks</a></li>
 	            <li class="divider"></li>
-	            <li><a href="{{ url('/users_list') }}">Επαγγελματίες</a></li>
+	            <li><a href="{{ url('/users_list') }}">Freelancers</a></li>
 	            <li class="divider"></li>
 	            <li><a href="{{ url('/jobs_list') }}">Εργασία</a></li>
 	          </ul>

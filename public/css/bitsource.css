@@ -91,6 +91,25 @@ footer p {
     min-height: 470px;
 }
 
+.home-icon {
+    width: 70px;
+}
+
+.home-icon-1, .home-icon-2, .home-icon-3 {
+    float: left;
+    margin: 2em;
+} 
+
+.home-icons {
+    width: 780px;
+    height: 100px;
+    margin: auto;
+}
+
+
+
+
+
 
 
 
@@ -436,6 +455,12 @@ footer p {
 
 /********************Freelancer profile page********************/
 
+.rating-warning {
+    color: red;
+    margin: 3px;
+    margin-left:5px;
+}
+
 #rateEmp {
     clear:both;
     margin: auto;
@@ -603,7 +628,7 @@ footer p {
 }
 
 .freelancer-rating-stars {
-    width: 80px;
+    width: 110px;
     height: 15px;
     float:right;
 }
@@ -796,6 +821,17 @@ footer p {
 
 
 
+/********************  Create Task Page  ********************/
+
+.push-create-task-page {
+    min-height: 500px;
+}
+
+.create-task-title {
+    margin-left: 50px;
+    margin-top: 30px;
+    font-size: 20px;
+}
 
 
 
