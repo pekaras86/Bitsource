@@ -116,7 +116,7 @@ class UserProfileController extends Controller
         // Insert skills in pivot table (profile_skill)
         for ($i=0; $i<$countTags; $i++) {
 
-          $skillId = \DB::table('skills')->where('sName', $new_tags[$i])->value('id');
+          $skillId  = \DB::table('skills')->where('sName', $new_tags[$i])->value('id');
           $profiles = Profile::find($profile_primary);
           $profiles->skills()->attach($skillId);
         
@@ -124,6 +124,7 @@ class UserProfileController extends Controller
 
 
         // Create records for freelancer/employee/both
+        /*
         if ($category == 'freelancer') {
             
             $createFreelancer = new \App\Freelancer(array(
@@ -154,7 +155,19 @@ class UserProfileController extends Controller
 
             $createEmployee->save();
         }
-        
+        */
+
+        $createFreelancer = new \App\Freelancer(array(
+              'pId' => $profile_primary
+            ));
+
+           $createFreelancer->save();
+
+            $createEmployee = new \App\Employee(array(
+              'pId' => $profile_primary
+            ));
+
+            $createEmployee->save();
 
         // Redirect
         return redirect()->route('profile.show', [$user_primary]);
@@ -168,11 +181,128 @@ class UserProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $user = \App\User::find($id);
-        //return response($user);
-        return view('profiles.show')->with('user', $user);
-    }
+    {   
+
+
+        $user       = \App\User::find($id);    // epelekse ton profile owner apo ton pinaka users
+        $profile_id = $user->profile->id;      // apothikefse to profile id tou
+        
+        
+        if($user->profile->pCategory === 'freelancer'){
+            $freelancer_comments   = \DB::table('comments')    //retrieve ta comments tou profileOwner 
+                                  ->join('profiles', 'profiles.id', '=', 'comments.reviewer')
+                                  ->join('users', 'users.id', '=', 'profiles.uId')
+                                  ->where('profileOwner', '=', $profile_id)
+                                  ->where('userType', '=', 1)
+                                  ->get();
+
+            $count_freelancer_comments = count($freelancer_comments);  //synolo freelancer comments
+
+            
+            $sumFreeRating = 0;  //athroisma rating
+            foreach($freelancer_comments as $freelancer_comment) {
+              $sumFreeRating = $sumFreeRating + $freelancer_comment->userRating;
+            }
+
+            
+            if($count_freelancer_comments > 0) {
+            //mesos oros ratings
+            $avgFreeRating = $sumFreeRating / $count_freelancer_comments;
+            $avgFreeRating = number_format((float)$avgFreeRating, 1, '.', '');
+            } else {
+              $avgFreeRating = 0;
+            }
+
+             //return response($avgFreeRating);
+            return view('profiles.show')->with('user', $user)->with('freelancer_comments', $freelancer_comments)->with('count_freelancer_comments', $count_freelancer_comments)->with('avgFreeRating', $avgFreeRating);
+        
+        } elseif ($user->profile->pCategory === 'employee') {
+            $employee_comments   = \DB::table('comments')    //retrieve ta comments tou profileOwner 
+                                  ->join('profiles', 'profiles.id', '=', 'comments.reviewer')
+                                  ->join('users', 'users.id', '=', 'profiles.uId')
+                                  ->where('profileOwner', '=', $profile_id)
+                                  ->where('userType', '=', 2)
+                                  ->get();
+
+            $count_employee_comments = count($employee_comments);  //synolo employee comments
+
+            $sumEmpRating = 0;  //athroisma rating
+            foreach($employee_comments as $employee_comment) {
+              $sumEmpRating = $sumEmpRating + $employee_comment->userRating;
+            }
+
+            
+            if($count_employee_comments >0){
+            //mesos oros ratings
+            $avgEmpRating = $sumEmpRating / $count_employee_comments;
+            $avgEmpRating = number_format((float)$avgEmpRating, 1, '.', '');
+            }else{
+              $avgEmpRating = 0;
+            }
+
+
+
+            return view('profiles.show')->with('user', $user)->with('employee_comments', $employee_comments)->with('count_employee_comments', $count_employee_comments)->with('avgEmpRating', $avgEmpRating);
+
+        } else {
+            
+          $freelancer_comments   = \DB::table('comments')    //retrieve ta comments tou profileOwner 
+                                  ->join('profiles', 'profiles.id', '=', 'comments.reviewer')
+                                  ->join('users', 'users.id', '=', 'profiles.uId')
+                                  ->where('profileOwner', '=', $profile_id)
+                                  ->where('userType', '=', 1)
+                                  ->get();
+
+          $count_freelancer_comments = count($freelancer_comments);  //synolo freelancer comments
+
+          $sumFreeRating = 0;  //athroisma rating
+            foreach($freelancer_comments as $freelancer_comment) {
+              $sumFreeRating = $sumFreeRating + $freelancer_comment->userRating;
+            }
+
+            
+            
+            if($count_freelancer_comments>0){
+            //mesos oros ratings
+            $avgFreeRating = $sumFreeRating / $count_freelancer_comments;
+            $avgFreeRating = number_format((float)$avgFreeRating, 1, '.', '');
+            }else{
+             $avgFreeRating = 0;
+            }
+          
+
+
+          $employee_comments   = \DB::table('comments')    //retrieve ta comments tou profileOwner 
+                                  ->join('profiles', 'profiles.id', '=', 'comments.reviewer')
+                                  ->join('users', 'users.id', '=', 'profiles.uId')
+                                  ->where('profileOwner', '=', $profile_id)
+                                  ->where('userType', '=', 2)
+                                  ->get();
+
+            $count_employee_comments = count($employee_comments);  //synolo employee comments
+
+            $sumEmpRating = 0;  //athroisma rating
+            foreach($employee_comments as $employee_comment) {
+              $sumEmpRating = $sumEmpRating + $employee_comment->userRating;
+            }
+
+            
+            
+            if($count_employee_comments>0) {
+            //mesos oros ratings
+            $avgEmpRating = $sumEmpRating / $count_employee_comments;
+            $avgEmpRating = number_format((float)$avgEmpRating, 1, '.', '');
+            } else {
+              $avgEmpRating = 0;
+            }
+
+
+
+
+            return view('profiles.show')->with('user', $user)->with('employee_comments', $employee_comments)->with('freelancer_comments', $freelancer_comments)->with('count_employee_comments', $count_employee_comments)->with('count_freelancer_comments', $count_freelancer_comments)->with('avgEmpRating', $avgEmpRating)->with('avgFreeRating', $avgFreeRating);
+
+        }
+    } //end function show
 
     /**
      * Show the form for editing the specified resource.

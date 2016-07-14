@@ -435,6 +435,31 @@ footer p {
 }
 
 /********************Freelancer profile page********************/
+
+#rateEmp {
+    clear:both;
+    margin: auto;
+}
+
+
+#rateFree {
+    clear:both;
+    margin: auto;
+}
+
+.employee-comment-section {
+    display: none;
+}
+
+.freelancer-comment-section {
+    display: initial;
+}
+
+.user-cat-com {
+  width: 680px;
+  margin-bottom: 10px;
+}
+
 .push-freelancer-profile {
     min-height: 500px;
     width: 960px;
@@ -507,6 +532,11 @@ footer p {
     padding-bottom: 20px;
 }
 
+#rateYo {
+    float: right;
+    margin-right: 10px;
+}
+
 .desc-port {
     text-align: justify;
 }
@@ -562,6 +592,7 @@ footer p {
     border-width: 1px;
     border-radius: 5px;
     padding: 10px;
+    margin-top: 10px;
 }
 
 .freelancer-rating-photo {

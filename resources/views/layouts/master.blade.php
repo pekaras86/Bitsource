@@ -35,6 +35,9 @@
   <link href="/bitsource/public/css/textext.plugin.focus.css" rel="stylesheet" type="text/css">
   <link href="/bitsource/public/css/textext.plugin.prompt.css" rel="stylesheet" type="text/css">
   <link href="/bitsource/public/css/textext.plugin.tags.css" rel="stylesheet" type="text/css">
+    <!-- RateYo Star rating -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.css">
+
 
 
 </head>
@@ -123,7 +126,7 @@
   <script src="/bitsource/public/javascript/dropzone.js"></script>
     <!-- Ajax setup -->
   <script src="/bitsource/public/javascript/ajaxsetup.js"></script>
-     <!-- Text ext -->
+    <!-- Text ext -->
   <script src="/bitsource/public/javascript/textext.core.js"></script>
   <script src="/bitsource/public/javascript/textext.plugin.ajax.js"></script>
   <script src="/bitsource/public/javascript/textext.plugin.arrow.js"></script>
@@ -134,6 +137,9 @@
   <script src="/bitsource/public/javascript/textext.plugin.prompt.js"></script>
   <script src="/bitsource/public/javascript/textext.plugin.suggestions.js"></script>
   <script src="/bitsource/public/javascript/textext.plugin.tags.js"></script>
+    <!-- RateYo Star rating -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.js"></script>
+
      
     <!-- Here place your custom javascript -->
   @yield('js')

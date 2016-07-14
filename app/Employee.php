@@ -15,8 +15,8 @@ class Employee extends Model
     	return $this->hasMany('App\Task');
     }
 
-    public function reviews() {
-    	return $this->belongsToMany('App\Freelancer');
+    public function freelancers() {
+    	return $this->belongsToMany('App\Freelancer', 'employee_freelancer', 'eId', 'fId');
     }
 
     public function profile() {

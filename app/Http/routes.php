@@ -48,6 +48,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('task_description','TaskDescriptionController@show'); 
     Route::get('job_description', 'JobDescriptionController@show'); 
     Route::resource('profile', 'UserProfileController');
+
+    Route::post('rate', 'UserRatingController@setRating');
     
     //Test Route
     /*Route::post('category', function() {
