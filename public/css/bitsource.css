@@ -316,6 +316,11 @@ footer p {
 
 
 /********************Task main page********************/
+
+.tBudget {
+    font-size: 15px;
+}
+
 .push-task {
     min-height: 500px;
     width: 960px;
@@ -414,6 +419,7 @@ footer p {
 }
 
 .freelancer-bid {
+    margin-top: 15px;
     clear: both;
     min-height: 150px;
     border-style: solid;
@@ -442,14 +448,14 @@ footer p {
 }
 
 .freelancer-bid-avatar {
-    width: 70%;
+    width: 95px;
+    height: 95px;
     margin:auto;
-    margin-top: 10px;
+    margin-top: 25px;
 }
 
 .freelancer-bid-stars-rating {
     width: 80px;
-    height: 20px;
     margin:auto;
 }
 
@@ -817,9 +823,14 @@ footer p {
     font-weight: bold;
 }
 
+/******************  404 page **************************/
+.message-1 {
+  font-size: 50px;
+}
 
-
-
+.message-2 {
+  font-size: 30px;
+}
 
 /********************  Create Task Page  ********************/
 

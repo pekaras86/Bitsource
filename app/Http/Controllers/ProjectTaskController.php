@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\TaskFormRequest;
+
+use App\Task;
+use App\Profile;
+use App\User;
+use App\Freelancer;
 
 class ProjectTaskController extends Controller
 {
@@ -15,7 +21,7 @@ class ProjectTaskController extends Controller
      */
     public function index()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -25,7 +31,9 @@ class ProjectTaskController extends Controller
      */
     public function create()
     {
+        
         return view('tasks.create');
+
     }
 
     /**
@@ -34,9 +42,43 @@ class ProjectTaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TaskFormRequest $request)
     {
-        //
+        
+        // αποθήκευση 'task' στον πίνακα 'tasks'.
+        $taskTitle       = $request->get('taskTitle');
+        $taskDescription = $request->get('taskDescription');
+        $taskBudget      = $request->get('taskBudget');
+        $taskEnds        = $request->get('taskEnds');
+
+        $task = new \App\Task(array(
+            'tTitle'       => $taskTitle,
+            'tDescription' => $taskDescription,
+            'tBudget'      => $taskBudget,
+            'tEnds'        => $taskEnds,
+            'eId'          => \Auth::user()->profile->employee->id
+        ));
+
+        $task->save();
+
+
+        // αποθήκευση στο pivot table 'skill_task'.
+        $tags            = $request->get('tags');
+        $decoded_tags    = json_decode($tags, true);
+        $countTags       = count($decoded_tags);
+
+        
+        for ($i=0; $i<$countTags; $i++) {
+
+          $skillId  = \DB::table('skills')->where('sName', $decoded_tags[$i])->value('id');
+          $profiles = Task::find($task->id);
+          $profiles->skills()->attach($skillId);
+        
+        } 
+
+        $taskPrimary = $task->id;
+        return redirect()->route('project_task.show', [$taskPrimary]);
+
     }
 
     /**
@@ -47,7 +89,74 @@ class ProjectTaskController extends Controller
      */
     public function show($id)
     {
-        //
+       
+       $task = \App\Task::find($id);
+       
+       $userFname = $task->employee->profile->user->uFname;
+       $userLname = $task->employee->profile->user->uLname;
+
+       $user_id = $task->employee->profile->user->id; 
+       
+       // rating δημιουργού του task.
+       $profile_id = $task->employee->profile->id;
+
+       $employee_comments   = \DB::table('comments')    //retrieve ta comments tou profileOwner 
+                                  ->join('profiles', 'profiles.id', '=', 'comments.reviewer')
+                                  ->join('users', 'users.id', '=', 'profiles.uId')
+                                  ->where('profileOwner', '=', $profile_id)
+                                  ->where('userType', '=', 2)
+                                  ->get();
+
+       $count_employee_comments = count($employee_comments);  //synolo employee comments
+
+       $sumEmpRating = 0;  //athroisma rating
+       foreach($employee_comments as $employee_comment) {
+         $sumEmpRating = $sumEmpRating + $employee_comment->userRating;
+       }
+    
+        if($count_employee_comments >0) {
+          //mesos oros ratings
+          $avgEmpRating = $sumEmpRating / $count_employee_comments;
+          $avgEmpRating = number_format((float)$avgEmpRating, 1, '.', '');
+        } else {
+          $avgEmpRating = 0;
+        }
+
+
+        
+
+       // προσφορές
+       $task_comments   = \DB::table('freelancer_task')    //retrieve ta comments tou profileOwner 
+                                  ->join('freelancers', 'freelancers.id', '=', 'freelancer_task.fId')
+                                  ->join('profiles', 'profiles.id', '=', 'freelancers.pId')
+                                  ->join('users', 'users.id', '=', 'profiles.uId')
+                                  ->where('tId', '=', $id)
+                                  ->get();
+
+
+
+        
+        $count_task_comments = count($task_comments);  //synolo task comments
+
+        $sumTaskOffers = 0;  //athroisma rating
+        foreach($task_comments as $task_comment) {
+          $sumTaskOffers = $sumTaskOffers + $task_comment->mbBid;
+         }
+
+         $sumTaskOffers = $sumTaskOffers/$count_task_comments; 
+    
+
+        return view('tasks.show')->with('task', $task)
+                                 ->with('avgEmpRating', $avgEmpRating)
+                                 ->with('userFname', $userFname)
+                                 ->with('userLname', $userLname)
+                                 ->with('user_id', $user_id)
+                                 ->with('task_comments', $task_comments )
+                                 ->with('count_task_comments', $count_task_comments)
+                                 ->with('sumTaskOffers', $sumTaskOffers);
+                                 
+       
+       //return response($offers);
     }
 
     /**

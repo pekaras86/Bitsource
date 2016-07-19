@@ -19,8 +19,8 @@ class Freelancer extends Model
     	return $this->belongsToMany('App\Employee', 'employee_freelancer', 'fId', 'eId');
     }
 
-    public function bids() {
-    	return $this->belongsToMany('App\Task');
+    public function tasks() {
+    	return $this->belongsToMany('App\Task', 'freelancer_task', 'fId', 'tId');
     }
 
     public function profile() {

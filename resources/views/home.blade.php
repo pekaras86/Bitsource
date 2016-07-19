@@ -9,7 +9,7 @@
   
   <div class="home-icons">    
     <div class="home-icon-1">   
-      <a href="#"><img src="/Bitsource/public/images/project_task.png" class="home-icon"></a>
+      <a href="/Bitsource/public/project_task/create"><img src="/Bitsource/public/images/project_task.png" class="home-icon"></a>
       <span><b>Ανάρτηση Αγγελίας</b></span>
     </div>   
 

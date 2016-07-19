@@ -15,4 +15,9 @@ class Skill extends Model
     {
         return $this->belongsToMany('App\Profile', 'profile_skill', 'sId', 'pId');
     }
+
+    public function tasks()
+    {
+    	return $this->belongsToMany('App\Task', 'skill_task', 'sId', 'tId');
+    }
 }

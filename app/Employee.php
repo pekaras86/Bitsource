@@ -12,7 +12,7 @@ class Employee extends Model
     ];
 
     public function tasks() {
-    	return $this->hasMany('App\Task');
+    	return $this->hasMany('App\Task', 'eId');
     }
 
     public function freelancers() {

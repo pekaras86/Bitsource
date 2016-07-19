@@ -30,4 +30,14 @@ class UserFormRequest extends Request
         ];
     }
 
+
+    public function messages()
+    {
+         return [
+             'description.required' => 'To πεδίο ΠΕΡΙΓΡΑΦΗ είναι υποχρεωτικό.',
+             'category.required'    => 'To πεδίο ΚΑΤΗΓΟΡΙΑ είναι υποχρεωτικό.',
+             'title.required'       => 'To πεδίο ΤΙΤΛΟΣ ΕΡΓΑΣΙΑΣ είναι υποχρεωτικό.'
+         ];
+    }
+
 }
