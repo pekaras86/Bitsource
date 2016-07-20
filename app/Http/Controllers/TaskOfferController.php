@@ -18,7 +18,7 @@ class TaskOfferController extends Controller
     	$taskId       = $request->get('taskId');
 
     	$task = \App\Task::find($taskId);
-    	$task->bided()->attach($userOffers, ['mbBid' => $offerPrice, 'mbComment' => $offerComment]);
+    	$task->freelancers()->attach($userOffers, ['mbBid' => $offerPrice, 'mbComment' => $offerComment]);
 
 
     	return response($taskId);

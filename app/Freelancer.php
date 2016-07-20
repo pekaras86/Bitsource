@@ -12,7 +12,7 @@ class Freelancer extends Model
     ];
 
     public function awards() {
-    	return $this->hasMany('App\Task');
+    	return $this->hasMany('App\Task', 'fId');
     }
 
     public function employees() {

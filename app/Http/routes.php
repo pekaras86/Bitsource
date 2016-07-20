@@ -51,6 +51,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::post('rate', 'UserRatingController@setRating');
     Route::post('offer', 'TaskOfferController@setOffer');
+    Route::post('offerWinner', 'OfferWinnerController@setWinner');
 
     Route::resource('project_task', 'ProjectTaskController');
     

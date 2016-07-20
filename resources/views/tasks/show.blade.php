@@ -19,10 +19,10 @@
 			  </div>
 			  <div class="task-average-bids">
 			  		<p><b>M.O Προσφορών</b></p>
-			  		@if($sumTaskOffers == '')
+			  		@if($avgTaskOffers == '')
 			  		<p class="tBudget">-</p>
 			  		@else
-			  		<p class="tBudget"><b>{{$sumTaskOffers}}&#8364;</b></p>
+			  		<p class="tBudget"><b>{{$avgTaskOffers}}&#8364;</b></p>
 			  		@endif
 			  </div>
 		  	  <div class="task-budget">
@@ -37,8 +37,7 @@
 	</div> <!--/task-description-header-->
 	<div class="task-description-body">
 		<h6><b>Περιγραφή</b></h6>
-		  {{$task->tDescription}}
-		<p></p>  
+		<p class="task_desc">{{$task->tDescription}}</p>  
 	    <p><b>Σχετικά με τον εργοδότη</b></p>
 	    <div style="float:left;" id="rateEmpTask"></div> <a style="display:inline;" href="/Bitsource/public/profile/{{$user_id}}"> ({{$userLname}} {{$userFname}}) </a>
 	    
@@ -55,6 +54,33 @@
 	    @endif
 	</div>  <!--/task-description-body-->
 </div> <!--/task-description-main-->
+
+
+
+
+<h5 class="total-bids"><b>Νικητής</b></h5>
+<!-- Winner -->
+<div class="freelancer-bid">
+  <div class="freelancer-bid-avatar-stars">
+        <img src="/Bitsource/public/images/avatars/{{$task->winner->profile->pAvatar}}" class="img-responsive img-circle freelancer-bid-avatar" alt="Responsive image">
+  </div>
+  <div class="winner-bid-comments">
+    <div>
+    	<a href="/Bitsource/public/profile/{{$task->winner->profile->user->id}}">{{$task->winner->profile->user->uLname}} {{$task->winner->profile->user->uFname}}</a>
+    </div>
+  	<div class="winner-title">
+  		<b>Τίτλος:</b>
+  	</div>
+  	<div>
+        {{$task->winner->profile->pTitle}}
+  	</div>
+  </div>
+  
+</div>
+
+
+
+
 
 
 
@@ -126,6 +152,10 @@
 
 <h5 class="total-bids"><b>Συνολικές Προσφορές</b></h5>
 
+@if($count_task_comments == '')
+   <div class="ep">Δεν υπάρχουν προσφορές</div>
+@else
+
 @foreach ($task_comments as $task_comment)
 <div class="freelancer-bid">
   <div class="freelancer-bid-avatar-stars">
@@ -149,12 +179,19 @@
   		ΠΡΟΣΦΟΡΑ
   	</h5>
   	<h5>
-  		<b>{{$task_comment->mbBid}}&#8364;</b>
-  	</h5> 	
+  		<b class="des">{{$task_comment->mbBid}}&#8364;</b>
+  	</h5>
+  	<div>
+  		<button type="button" class="offer-btn btn btn-primary btn-xs">Επιλογη</button>
+  		<div class="offer_user_id">{{$task_comment->uId}}</div>
+  	</div> 	
   </div>
 </div>
 @endforeach
 
+@endif
+
+<div class="push-task2"></div></div>
 
 </div> <!--/push-task-->
 
@@ -215,6 +252,30 @@ $(document).ready(function () {
 
   });  // end click	
   @endif
+
+
+
+  // επιλογή προσφοράς
+  $('.offer-btn').click(function(){
+
+  	var sibling = $(this).next();
+  	var value = sibling.text();
+
+  	var bestOffer = $(this).parent().prev().children('.des').text();
+
+
+  	$.post('/Bitsource/public/offerWinner',
+    	{
+    		winner         : value, // νικητής προσφοράς
+    	    taskId         : {{$task->id}},
+    	    bestOffer      : bestOffer 
+    	},
+    	    function(data, status){
+    		  console.log("Data: " + data + "\nStatus: " + status)
+    });
+  	
+
+  }); // end click
 
 
   }); // end ready

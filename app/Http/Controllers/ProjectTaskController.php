@@ -141,22 +141,33 @@ class ProjectTaskController extends Controller
         $sumTaskOffers = 0;  //athroisma rating
         foreach($task_comments as $task_comment) {
           $sumTaskOffers = $sumTaskOffers + $task_comment->mbBid;
-         }
+        }
 
-         $sumTaskOffers = $sumTaskOffers/$count_task_comments; 
+
+        if($count_task_comments > 0) {
+            //mesos oros ratings
+            $avgTaskOffers = $sumTaskOffers / $count_task_comments;
+            $avgTaskOffers = number_format((float)$avgTaskOffers, 1, '.', '');
+        } else {
+             $avgTaskOffers = 0;
+        }
+
+
+
+         
     
 
-        return view('tasks.show')->with('task', $task)
-                                 ->with('avgEmpRating', $avgEmpRating)
-                                 ->with('userFname', $userFname)
-                                 ->with('userLname', $userLname)
-                                 ->with('user_id', $user_id)
-                                 ->with('task_comments', $task_comments )
-                                 ->with('count_task_comments', $count_task_comments)
-                                 ->with('sumTaskOffers', $sumTaskOffers);
+        return view('tasks.show')->with('task', $task)  // plirofories tou task
+                                 ->with('avgEmpRating', $avgEmpRating) // rating tou employee
+                                 ->with('userFname', $userFname)  // onoma ergodoti
+                                 ->with('userLname', $userLname)  //epitheto ergodoti
+                                 ->with('user_id', $user_id)  // to user id tou employee
+                                 ->with('task_comments', $task_comments )  // ta offers
+                                 ->with('count_task_comments', $count_task_comments)  // synolika offers
+                                 ->with('avgTaskOffers', $avgTaskOffers);  // mesos oros prosforwn
                                  
        
-       //return response($offers);
+       //return response($task_comments);
     }
 
     /**

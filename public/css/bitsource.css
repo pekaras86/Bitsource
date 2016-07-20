@@ -314,8 +314,25 @@ footer p {
     min-height: 500px;
 }
 
+.push-task2 {
+    margin-bottom: 100px;
+}
+
+.ep {
+    float: left;
+    clear: left;
+}
+
+.offer_user_id {
+    opacity: 0;
+}
+
 
 /********************Task main page********************/
+
+.task_desc {
+    text-align: justify;
+}
 
 .tBudget {
     font-size: 15px;
@@ -445,6 +462,18 @@ footer p {
     min-height: 150px;
     width:65%;
     float:left;
+    margin-top: 15px;
+}
+
+.winner-bid-comments {
+    min-height: 150px;
+    width:65%;
+    float:left;
+    margin-top: 15px;
+}
+
+.winner-title {
+    margin-top: 5px;
 }
 
 .freelancer-bid-avatar {

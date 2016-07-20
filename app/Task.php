@@ -23,5 +23,10 @@ class Task extends Model
     public function freelancers() {
         return $this->belongsToMany('App\Freelancer', 'freelancer_task', 'tId', 'fId');
     }
+
+    public function winner()
+    {
+        return $this->belongsTo('App\Freelancer', 'fId');
+    }
     
 }
