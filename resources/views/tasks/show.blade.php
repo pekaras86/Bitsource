@@ -4,7 +4,18 @@
 
 <div class="push-task">
 
+
+@if(Auth::user())
+  @if(Auth::user()->profile->employee->id == $task->eId)
+		<div class="edit-task-btn">
+		  <a href="/Bitsource/public/project_task/{{$task->id}}/edit" class="btn btn-info btn-xs" role="button">Edit</a>
+		</div>
+	@endif
+@endif
+
+
 <h5><b>{{$task->tTitle}}</b></h5>
+
 
 <div class="task-description-main">
 	<div class="task-description-header">
@@ -285,6 +296,9 @@ $(document).ready(function () {
     		  console.log("Data: " + data + "\nStatus: " + status)
     });
   	
+
+  	//refresh page
+  	window.location.reload(true);
 
   }); // end click
 

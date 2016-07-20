@@ -178,7 +178,9 @@ class ProjectTaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = \App\Task::find($id);
+
+        return view('tasks.edit')->with('task', $task);
     }
 
     /**
@@ -190,7 +192,37 @@ class ProjectTaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // κάνε update το task.
+        $taskTitle       = $request->get('taskTitle');
+        $taskDescription = $request->get('taskDescription');
+        $taskBudget      = $request->get('taskBudget');
+        $taskEnds        = $request->get('taskEnds');
+
+
+        \DB::table('tasks')
+            ->where('id', $id)
+            ->update(['tTitle' => $taskTitle, 'tDescription' => $taskDescription, 'tBudget' => $taskBudget, 'tEnds' => $taskEnds]);
+
+        // svise ta palia skills
+        \DB::table('skill_task')->where('tId', '=', $id)->delete(); 
+
+        //pare ta nea skills
+        $tags            = $request->get('tags');
+        $decoded_tags    = json_decode($tags, true);
+        $countTags       = count($decoded_tags);
+
+        
+        for ($i=0; $i<$countTags; $i++) {
+          $skillId  = \DB::table('skills')->where('sName', $decoded_tags[$i])->value('id');
+          $profiles = Task::find($id);
+          $profiles->skills()->attach($skillId);
+        } 
+    
+    
+        return redirect()->route('project_task.show', [$id]);
+        //return response($countTags);
+    
+
     }
 
     /**

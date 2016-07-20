@@ -488,6 +488,10 @@ footer p {
     margin:auto;
 }
 
+.edit-task-btn {
+    float: right;
+}
+
 /********************Freelancer profile page********************/
 
 .rating-warning {
