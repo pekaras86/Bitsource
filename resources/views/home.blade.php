@@ -7,7 +7,7 @@
   <div class="home-icons">    
     
 
-    @if(Auth::user()->profile->pCategory == 'employee'))
+    @if(Auth::user()->profile->pCategory == 'employee')
     <div class="home-icon-1">   
       <a href="/Bitsource/public/project_task/create"><img src="/Bitsource/public/images/project_task.png" class="home-icon"></a>
       <span><b>Ανάρτηση Αγγελίας</b></span>

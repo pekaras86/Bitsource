@@ -14,8 +14,9 @@ class OfferWinnerController extends Controller
     function setWinner(Request $request) {
     	
         // πάρε το ajax από το task page.
-    	$offerWinner = $request->get('winner'); // user id 
-    	$taskId      = $request->get('taskId');
+    	$offerWinner = $request->get('winner'); // νικητής προσφοράς (user id) 
+    	$taskId      = $request->get('taskId'); // το id του task
+        $bestOffer   = $request->get('bestOffer');
 
     	// βρές τον user με το πιό πάνω id.
     	$user = \App\User::find($offerWinner);
@@ -26,9 +27,9 @@ class OfferWinnerController extends Controller
     	// βάλε το freelancer_id μέσα στο συγκεκριμένο task.
     	\DB::table('tasks')
             ->where('id', $taskId)
-            ->update(['fId' => $freelancer_id]);
+            ->update(['fId' => $freelancer_id, 'tBestOffer' => $bestOffer]);
 
-    	return response($freelancer_id); 
+    	return response($bestOffer); 
     }
     
 }
