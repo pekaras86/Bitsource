@@ -58,6 +58,39 @@
 
 
 
+
+@if($task->fId == '')
+@else
+<h5 class="total-bids"><b>Νικητής</b></h5>
+<!-- Winner -->
+<div class="freelancer-bid">
+  <div class="freelancer-bid-avatar-stars">
+        <img src="/Bitsource/public/images/avatars/{{$task->winner->profile->pAvatar}}" class="img-responsive img-circle freelancer-bid-avatar" alt="Responsive image">
+  </div>
+  <div class="winner-bid-comments">
+    <div>
+    	<a href="/Bitsource/public/profile/{{$task->winner->profile->user->id}}">{{$task->winner->profile->user->uLname}} {{$task->winner->profile->user->uFname}}</a>
+    </div>
+  	<div class="winner-title">
+  		<b>Τίτλος:</b>
+  	</div>
+  	<div>
+        {{$task->winner->profile->pTitle}}
+  	</div>
+  </div>
+  <div class="freelancer-bid-price">
+  	<h5>
+  		ΠΡΟΣΦΟΡΑ
+  	</h5>
+  	<h5>
+  		<b class="des">{{$task->tBestOffer}}</b>
+  	</h5>
+  </div>
+</div>
+@endif
+
+
+
 <!--  Κουμπί προσφοράς -->
 @if (Auth::guest())
   <!-- Εάν o χρήστης είναι guest μην εμφανίζεις το κουμπί. -->  
