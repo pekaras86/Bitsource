@@ -20,4 +20,9 @@ class Skill extends Model
     {
     	return $this->belongsToMany('App\Task', 'skill_task', 'sId', 'tId');
     }
+
+    public function ads() 
+    {
+        return $this->belongsToMany('App\Ad', 'ad_skill', 'sId', 'aId');
+    }
 }

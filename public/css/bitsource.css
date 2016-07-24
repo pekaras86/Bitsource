@@ -834,6 +834,10 @@ footer p {
 
 /********************Job description page********************/
 
+.job-just {
+    text-align: justify;
+}
+
 .push-job-description {
     min-height: 500px;
     width: 960px;
@@ -878,6 +882,18 @@ footer p {
 }
 
 
+/********************  Create Job Page  ********************/
+
+.push-create-job-page {
+    min-height: 500px;
+}
+
+.aggelia-create {
+    width: 960px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 
 
 

@@ -44,9 +44,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('jobs_list','JobsListController@show');  
     Route::get('tasks_list','TasksListController@show');  
 
-    //Descriptions
-    Route::get('task_description','TaskDescriptionController@show'); 
-    Route::get('job_description', 'JobDescriptionController@show'); 
+    //Descriptions 
+    Route::resource('job', 'JobDescriptionController');
     Route::resource('profile', 'UserProfileController');
 
     Route::post('rate', 'UserRatingController@setRating');

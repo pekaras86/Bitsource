@@ -69,11 +69,9 @@ class ProjectTaskController extends Controller
 
         
         for ($i=0; $i<$countTags; $i++) {
-
           $skillId  = \DB::table('skills')->where('sName', $decoded_tags[$i])->value('id');
           $profiles = Task::find($task->id);
           $profiles->skills()->attach($skillId);
-        
         } 
 
         $taskPrimary = $task->id;
@@ -91,6 +89,10 @@ class ProjectTaskController extends Controller
     {
        
        $task = \App\Task::find($id);
+
+       if($task == '') {
+        return view('errors.404');
+       }
        
        $userFname = $task->employee->profile->user->uFname;
        $userLname = $task->employee->profile->user->uLname;

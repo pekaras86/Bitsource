@@ -22,4 +22,8 @@ class Employee extends Model
     public function profile() {
         return $this->belongsTo('App\Profile', 'pId', 'id');
     }
+
+    public function ads() {
+        return $this->hasMany('App\Ad', 'eId');
+    }
 }
