@@ -47,7 +47,7 @@
 
      @if(Auth::user()->profile->pCategory == 'employee' || Auth::user()->profile->pCategory == 'both')
     <div class="home-icon-2">   
-      <a href="/Bitsource/public/project_task/create"><img src="/Bitsource/public/images/aggelies.png" class="home-icon"></a>
+      <a href="/Bitsource/public/job/create"><img src="/Bitsource/public/images/aggelies.png" class="home-icon"></a>
       <span><b>Ανάρτηση Αγγελίας</b></span>
     </div>
     @else
@@ -87,8 +87,8 @@
 
 
     <div class="home-icon-3">   
-      <a href="#"><img src="/Bitsource/public/images/oi_anartiseis_mou.png" class="home-icon"></a>
-      <span><b>Οι αναρτήσεις μου</b></span>
+      <a href="/Bitsource/public/myposts"><img src="/Bitsource/public/images/oi_anartiseis_mou.png" class="home-icon"></a>
+      <span><b>Οι λίστες μου</b></span>
     </div>
   
 

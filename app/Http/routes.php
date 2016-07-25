@@ -53,10 +53,13 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('offerWinner', 'OfferWinnerController@setWinner');
 
     Route::resource('project_task', 'ProjectTaskController');
+
+    // Listes
+    Route::get('myposts', 'MyPostsController@show');
     
     //Test Route
-    /*Route::post('offer', function() {
-      return response('hi');
+    /*Route::get('myposts', function() {
+      return view('myposts.create');
     });*/
 
 });

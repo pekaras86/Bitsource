@@ -206,7 +206,7 @@
 
         @if($user->profile->pCategory === 'both')
         <div class="btn-group btn-group-justified user-cat-com" role="group">
-          <a href="#" class="btn btn-primary com-choice com-choice-free">Ως επαγγελματιας</a>
+          <a href="#" class="btn btn-primary com-choice com-choice-free">Ως freelancer</a>
           <a href="#" class="btn btn-default com-choice com-choice-emp">Ως εργοδοτης</a>
         </div>
         @else
