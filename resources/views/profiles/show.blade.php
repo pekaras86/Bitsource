@@ -70,7 +70,13 @@
 
 	<div class="freelancer-contact">
 	    <div id="freelancer-contact-header"></div>
-		<button class="btn btn-info btn-lg" type="submit">ΕΠΙΚΟΙΝΩΝΙΑ</button>
+
+		@if(Auth::guest())
+		<a href="{{URL::to('login')}}"><button class="btn btn-info btn-lg" type="submit">ΕΠΙΚΟΙΝΩΝΙΑ</button></a>
+		@else
+		<button class="btn btn-info btn-lg" data-toggle="modal" data-target="#contact-modal">ΕΠΙΚΟΙΝΩΝΙΑ</button>
+		@endif
+		
 		@if ($user->profile->pCategory === 'freelancer')
 		  <h4><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{$user->profile->pSalary}}/ώρα</h4>
 		@elseif ($user->profile->pCategory === 'employee')
@@ -99,6 +105,40 @@
 			<div class="desc-com">(ώς εργοδότης)</div>
 		@endif
     </div>  <!--/freelancer-contact-->
+
+
+        <!-- Modal Epikoinwnias -->
+	<div id="contact-modal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">ΕΠΙΚΟΙΝΩΝΙΑ</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="form-group">
+		       <label for="recipient-name" class="control-label">Παραλήπτης: <b>{{$user->email}}</b></label>
+		       
+		    </div>
+		    <div class="form-group">
+		        <label for="message-text" class="control-label">Mήνυμα:</label>
+		        <textarea rows="5" class="form-control" id="reviewComment" name="modalDescription"></textarea>
+		    </div>
+	      </div>
+	      <div class="modal-footer">
+		      <button type="button" class="btn btn-default" data-dismiss="modal">ΑΚΥΡΟ</button>
+		      <button type="button" class="btn btn-primary">ΑΠΟΣΤΟΛΗ</button>
+		  </div>
+		  <div class="rating-warning">Τα πεδία <b>'Τίτλος Έργου'</b> και <b>'Σχόλια'</b> είναι υποχρεωτικά!</div>
+	    </div>
+
+	  </div>
+	</div> <!--/end modal -- >
+
+
+
 
     
     <!-- Comment btn -->
@@ -290,9 +330,6 @@
 
     </div> <!--end freelancer rating section-->
   
-
-    
-
 
 </div> <!--/push-freelancer-profile-->
 

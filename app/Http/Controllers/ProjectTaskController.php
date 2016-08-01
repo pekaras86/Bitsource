@@ -235,6 +235,9 @@ class ProjectTaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //διέγραψε το record
+        \App\Task::destroy($id);
+
+        return redirect()->action('MyPostsController@show');
     }
 }

@@ -30,5 +30,9 @@ class User extends Authenticatable
         return $this->hasOne('App\Profile', 'uId');
     }
 
+    public function todolist() {
+        return $this->hasOne('App\Todolist', 'uId');
+    }
+
     
 }

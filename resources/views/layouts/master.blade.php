@@ -117,7 +117,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <!-- JQuery UI -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <!-- Tag it! -->
   <script src="/bitsource/public/javascript/tag-it.js" type="text/javascript" charset="utf-8"></script> 
     <!-- Include all compiled plugins (below), or include individual files as needed -->

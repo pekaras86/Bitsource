@@ -175,6 +175,8 @@ class JobDescriptionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\Ad::destroy($id);
+
+        return redirect()->action('MyPostsController@show');
     }
 }

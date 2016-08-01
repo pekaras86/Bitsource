@@ -56,6 +56,14 @@ Route::group(['middleware' => 'web'], function () {
 
     // Listes
     Route::get('myposts', 'MyPostsController@show');
+
+    // redirect sti login selida
+    Route::get('login', function() {
+      return view('auth/login');
+    });
+
+    //αποστολή todo list
+    Route::post('save_todo', 'SaveTodoController@saveTodoList');
     
     //Test Route
     /*Route::get('myposts', function() {

@@ -33,6 +33,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user_todolist_id = \Auth::user()->todolist->id;
+
+        $todos = \App\Todolist::find($user_todolist_id)->todos;
+        $completes = \App\Todolist::find($user_todolist_id)->completed;
+
+        //return response($todos);
+        return view('home')->with('todos', $todos)
+                           ->with('completes', $completes);
     }
 }

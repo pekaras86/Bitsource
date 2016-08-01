@@ -33,7 +33,13 @@
 				<td><a href="/Bitsource/public/project_task/{{$task->id}}">{{$task->tTitle}}</a></td>
 				<td>{{$task->created_at}}</td>
 				<td>{{$task->tEnds}}</td>
-				<td>Δ</td>	
+				<td>
+
+				  {!! Form::open(array('route' => array('project_task.destroy', $task->id), 'method' => 'delete' ))!!}
+				    <button type="submit">Delete</button>
+				  {!! Form::close() !!}
+
+				</td>	
 			</tr>
 			@endforeach
 		@endif	
@@ -64,7 +70,13 @@
 				<td><a href="/Bitsource/public/job/{{$ad->id}}">{{$ad->adTitle}}</a></td>
 				<td>{{$ad->created_at}}</td>
 				<td>{{$ad->adCompany}}</td>
-				<td>Δ</td>	
+				<td>
+					
+                    {!! Form::open(array('route' => array('job.destroy', $ad->id), 'method' => 'delete' ))!!}
+				    <button type="submit">Delete</button>
+				  {!! Form::close() !!} 
+
+				</td>	
 			</tr>
 			@endforeach
 		@endif	
@@ -134,7 +146,14 @@
 				<td><a href="/Bitsource/public/project_task/{{$task->id}}">{{$task->tTitle}}</a></td>
 				<td>{{$task->created_at}}</td>
 				<td>{{$task->tEnds}}</td>
-				<td>Δ</td>	
+				<td>
+					
+                     {!! Form::open(array('route' => array('project_task.destroy', $task->id), 'method' => 'delete' ))!!}
+				    <button type="submit">Delete</button>
+				  {!! Form::close() !!}
+
+
+				</td>	
 			</tr>
 			@endforeach
 		@endif	
@@ -165,7 +184,16 @@
 				<td><a href="/Bitsource/public/job/{{$ad->id}}">{{$ad->adTitle}}</a></td>
 				<td>{{$ad->created_at}}</td>
 				<td>{{$ad->adCompany}}</td>
-				<td>Δ</td>	
+				<td>
+					
+                      
+                       {!! Form::open(array('route' => array('job.destroy', $ad->id), 'method' => 'delete' ))!!}
+				    <button type="submit">Delete</button>
+				  {!! Form::close() !!} 
+
+
+
+				</td>	
 			</tr>
 			@endforeach
 		@endif	
