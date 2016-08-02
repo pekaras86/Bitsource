@@ -226,7 +226,7 @@
      });
   });
 
-  $('.home-message').hide();
+  //$('.home-message').hide();
 
   // αποθήκευση της to-do list
   $('.save-todo').click(function(event){
@@ -249,7 +249,8 @@
     });  //end each
 
     
-
+    $('.home-message').show();
+    $('.home-message').fadeOut(1000);
     
     //αποστολή λίστας με ajax
     $.post('/Bitsource/public/save_todo',

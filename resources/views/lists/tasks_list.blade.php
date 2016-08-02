@@ -19,28 +19,33 @@
 
 <div class="tasks-short-main">
 
+@foreach($tasks as $task)
+
 <div class="tasks-short-profile">
   <div class="tasks-short-avatar">
-  	<img src="images/avocarrot.jpg" class="img-responsive img-circle" alt="Responsive image">
+  	<img src="/Bitsource/public/images/avatars/{{$task->employee->profile->pAvatar}}" class="task-owner-avatar img-responsive img-circle" alt="Responsive image">
   </div>
   <div class="tasks-short-info">
-  	<h5><a href="task_description">Σχεδίαση λογότυπου</a></h5>
-  	<h6><a href="#">Avocarrot</a></h6>
-  	<h6>We develop our own facial imaging software but require coordinates of basic facial features to start. We are...</h6>
+  	<h6><a href="/Bitsource/public/project_task/{{$task->id}}">{{$task->tTitle}}</a></h6>
+  	<h6><a href="/Bitsource/public/profile/{{$task->employee->profile->user->id}}">{{$task->employee->profile->user->uLname}} {{$task->employee->profile->user->uFname}}</a></h6>
+  	<h6 style="text-align:justify;">{{str_limit($task->tDescription, 200)}}</h6>
   	<div class="tasks-short-glyphicons">
-  		<span><b>Προσφορές:</b></span><span class="space">8</span>
-  		<span><b>M.O Προσφορών:</b></span><span class="space glyphicon glyphicon-euro">32</span>
+  		<span><b>Λήξη:</b></span><span class="space"> {{$task->tEnds}}</span>
   	</div>
   </div>
   <div class="tasks-short-price-contact">
-    <h5>
-      <span class="glyphicon glyphicon-euro"></span>20-50
+    <h6><b>Προϋπολογισμός</b></h6>
+    <h5 style="text-align:center;">
+      {{$task->tBudget}}
     </h5>
-  	<button class="btn btn-info" type="submit">ΠΡΟΣΦΟΡΑ</button>
   </div>
 </div>
 
+@endforeach
+
 </div> <!-- /freelancers-short-main -->
+
+<div class="task-keno"></div>
 
 </div> <!-- /push-tasks --> 
 @endsection

@@ -91,6 +91,7 @@ footer p {
     margin: auto;
     width: 150px;
     height: 25px;
+    display: none;
 }
 
 .save-todo {
@@ -278,6 +279,11 @@ footer p {
     float:left;
 }
 
+.free-list {
+    height: 100px;
+    width: 100px;
+}
+
 .freelancer-short-price-contact {
     float:right;
     width:15%;
@@ -369,12 +375,22 @@ footer p {
 }
 
 .tasks-short-profile {
-    height:170px;
+    min-height:170px;
     width:800px;
     margin: auto;
     background-color: cyan;
     padding:10px;
     margin-top:10px;
+}
+
+.task-owner-avatar {
+    width: 110px;
+    height: 108px;
+    margin-top: 15px;
+}
+
+.task-keno {
+    height: 100px;
 }
 
 .tasks-short-avatar {
@@ -396,6 +412,7 @@ footer p {
     float:right;
     width:15%;
     height:120px;
+    margin-top: 35px;
 }
 
 .push-tasks {
