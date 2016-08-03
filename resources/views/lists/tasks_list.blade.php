@@ -5,7 +5,7 @@
 <div class="push-tasks">
 
 <div class="tasks-page-title">
-ΕΡΓΑ
+PROJECTS/TASKS
 </div>
 
 <form class="tasks-search-form">
@@ -26,7 +26,7 @@
   	<img src="/Bitsource/public/images/avatars/{{$task->employee->profile->pAvatar}}" class="task-owner-avatar img-responsive img-circle" alt="Responsive image">
   </div>
   <div class="tasks-short-info">
-  	<h6><a href="/Bitsource/public/project_task/{{$task->id}}">{{$task->tTitle}}</a></h6>
+  	<h5><a href="/Bitsource/public/project_task/{{$task->id}}">{{$task->tTitle}}</a></h5>
   	<h6><a href="/Bitsource/public/profile/{{$task->employee->profile->user->id}}">{{$task->employee->profile->user->uLname}} {{$task->employee->profile->user->uFname}}</a></h6>
   	<h6 style="text-align:justify;">{{str_limit($task->tDescription, 200)}}</h6>
   	<div class="tasks-short-glyphicons">
@@ -34,9 +34,9 @@
   	</div>
   </div>
   <div class="tasks-short-price-contact">
-    <h6><b>Προϋπολογισμός</b></h6>
+    <h6><b><u>Προϋπολογισμός</u></b></h6>
     <h5 style="text-align:center;">
-      {{$task->tBudget}}
+      <b>{{$task->tBudget}}</b>
     </h5>
   </div>
 </div>

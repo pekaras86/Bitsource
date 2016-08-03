@@ -10,6 +10,9 @@ use App\Http\Controllers\Controller;
 class JobsListController extends Controller
 {
     function show() {
-    	return view("lists.jobs_list");
+        
+        $jobs = \App\Ad::all();
+
+    	return view("lists.jobs_list")->with('jobs', $jobs);
     }
 }
