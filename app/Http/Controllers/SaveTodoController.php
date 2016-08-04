@@ -17,48 +17,9 @@ class SaveTodoController extends Controller
     	// user primary key
     	$user_primary_key = \Auth::user()->id;
 
-    	// έλεγξε εάν υπάρχει χρήστης με το πάκω κλειδί που έχει todolist 
+    	// vres to id tis todolist tou xristi
     	$user_todolist = \App\Todolist::where('uId', '=', $user_primary_key)->first();
 		
-
-		if ($user_todolist == null) {  // εάν δεν έχει todolist
-		  
-		  $todolist = new \App\Todolist(array(  // δημιούργησε todolist
-            'uId'  => $user_primary_key
-          ));
-
-          $todolist->save();
-
-          // αποθήκευσε τα todos
-          $countToDos = count($toDo);
-
-          for ($i=0; $i<$countToDos; $i++) {
-            
-            $todo = new \App\Todo(array(  // δημιούργησε todolist
-              'tdId'  => $todolist->id,
-              'task'  => $toDo[$i]
-            ));
-
-            $todo->save();
-          
-          }
-
-          //αποθήκευσε τα completed
-          $countCompleted = count($completed);
-
-          for ($i=0; $i<$countCompleted; $i++) {
-            
-            $com = new \App\Complete(array(  // δημιούργησε todolist
-              'tdId'  => $todolist->id,
-              'task'  => $completed[$i]
-            ));
-
-            $com->save();
-          
-          }
-
-		
-		} else {  // εάν έχει todolist
 		  
 		  $todolist_id = $user_todolist->id;
            
@@ -94,12 +55,7 @@ class SaveTodoController extends Controller
           
           }
 		  
-		
-		}
     	
-    	
-        
-
 
     	//return response('');
     	//return view('home')->with('$user_todolist',$user_todolist);

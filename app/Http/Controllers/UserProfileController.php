@@ -11,6 +11,7 @@ use App\Profile;
 use App\Portfolio;
 use App\User;
 use App\Skill;
+use App\Todolist;
 
 
 class UserProfileController extends Controller
@@ -169,6 +170,15 @@ class UserProfileController extends Controller
             ));
 
             $createEmployee->save();
+
+            //dimiourgise todo list
+           $todolist = new \App\Todolist(array(  // δημιούργησε todolist
+            'uId'  => $user_primary
+           ));
+
+           $todolist->save();
+
+
 
         // Redirect
         return redirect()->route('profile.show', [$user_primary]);
