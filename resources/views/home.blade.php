@@ -106,10 +106,11 @@
           @endforeach
         </ul>
     </div>
-
+    
     <div class="keno">
         
     </div>
+
 
     <div id="completed">
         <h5>Completed Tasks</h5>

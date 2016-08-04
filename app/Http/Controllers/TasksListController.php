@@ -14,11 +14,17 @@ class TasksListController extends Controller
 {
     public function show() {
 
+
         $tasks = \App\Task::all();
 
-    	return view("lists.tasks_list")->with('tasks', $tasks);
-    	//return response($tasks);
+        $tasks_search = 0;
+
+    	return view("lists.tasks_list")->with('tasks', $tasks)
+    	                               ->with('tasks_search', $tasks_search);
+    	
     }
+
+    
 
     
 }

@@ -42,7 +42,11 @@ Route::group(['middleware' => 'web'], function () {
     //Lists
     Route::get('users_list','UsersListController@show'); 
     Route::get('jobs_list','JobsListController@show');  
-    Route::get('tasks_list','TasksListController@show');  
+    Route::get('tasks_list','TasksListController@show'); 
+
+    //Lists with search
+    Route::get('tasks_list_search', 'TasksListSearchController@show'); 
+      
 
     //Descriptions 
     Route::resource('job', 'JobDescriptionController');

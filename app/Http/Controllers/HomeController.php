@@ -41,5 +41,6 @@ class HomeController extends Controller
         //return response($todos);
         return view('home')->with('todos', $todos)
                            ->with('completes', $completes);
+
     }
 }

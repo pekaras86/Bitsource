@@ -8,14 +8,14 @@
 ΕΡΓΑΣΙΑ
 </div>
 
-<form class="jobs-search-form">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Αναζητήστε με βάση τον τίτλο, τις ικανότητες ή την τοποθεσία" aria-label="...">
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="button">ΑΝΑΖΗΤΗΣΗ</button>
-    </span>
-  </div><!-- /input-group --> 
-</form>
+<form class="tasks-search2">
+        <input type="hidden" class="form-control" name="skills" placeholder="Πληκτρολογήστε εδώ για να προσθέσετε..."> 
+        <textarea id="textarea" rows="2" style="width:670px;"></textarea>
+        <span class="input-group-btn">
+            <button class="btn btn-default" style="margin-left:690px;" type="button">ΑΝΑΖΗΤΗΣΗ</button>
+        </span>
+        <div style="color:red;">*Πληκτρολογήστε ικανότητες όπως : css, php, ruby, javascript </div>
+    </form>
 
 <div class="jobs-short-main">
 
@@ -83,5 +83,61 @@
 <div class="job-keno" style="height:100px;"></div>
 
 </div> <!-- /push-jobs -->
+
+@endsection
+
+
+
+@section('js')
+
+<script>
+
+$(document).ready(function () {
+
+  // auto complete skills tags
+    $('#textarea')
+        .textext({
+            html : {
+               hidden:('<input type="hidden" name="tags" />')
+            },
+            plugins : 'tags autocomplete filter',
+            useSuggestionsToFilter : true
+        })
+        .bind('getSuggestions', function(e, data)
+        {
+            var list = [
+                    'HTML',
+                    'CSS',
+                    'Javascript',
+                    'PHP',
+                    'C#',
+                    'Python',
+                    'Ruby',
+                    'Go',
+                    'Node.js',
+                    'Ruby on Rails',
+                    'Java',
+                    'Android',
+                    'MySQL',
+                    'AngularJS',
+                    'React',
+                    'jQuery',
+                    'Bootstrap',
+                    'Foundation',
+                    'MongoDB',
+                ],
+                textext = $(e.target).textext()[0],
+                query = (data ? data.query : '') || '';
+
+            $(this).trigger(
+                'setSuggestions',
+                { result : textext.itemManager().filter(list, query) }
+            );
+        });
+
+}); //end ready
+
+
+</script>
 
 @endsection

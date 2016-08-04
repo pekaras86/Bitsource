@@ -310,6 +310,12 @@ footer p {
 
 
 /********************Jobs list page********************/
+
+.tasks-search3 {
+    margin-left: 250px;
+    margin-top: 25px;
+}
+
 .jobs-search-form {
     width: 50%;
     margin:auto;
@@ -360,6 +366,15 @@ footer p {
 
 
 /********************Tasks list page********************/
+.tasks-search2 {
+    margin-left: 240px;
+    margin-top: 25px;
+}
+
+.text-core {
+    float: left;
+}
+
 .tasks-page-title {
     font-size:200%;
     margin-left:20px;
