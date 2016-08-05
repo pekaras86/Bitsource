@@ -27,10 +27,16 @@ FREELANCERS
         <img src="/Bitsource/public/images/avatars/{{$profile->pAvatar}}" class="free-list img-responsive img-circle" alt="Responsive image">
       </div>
       <div class="freelancer-short-info">
-        <h5><a href="/Bitsource/public/profile/{{$profile->id}}">{{$profile->uLname . ' ' . $profile->uFname}}</a></h5>
+        <h5><a href="/Bitsource/public/profile/{{$profile->id}}">{{$profile->user->uLname . ' ' . $profile->user->uFname}}</a></h5>
         <h6>{{$profile->pTitle}}</h6>
         <div class="freelancer-short-glyphicons">
           <span class="glyphicon glyphicon-map-marker"></span><span class="space">{{$profile->pLocation}}</span>
+        </div>
+        <div>
+            Ικανότητες : 
+            @foreach($profile->skills as $skill)
+              <a href="#">{{$skill->sName}}</a>
+            @endforeach
         </div>
       </div>
       <div class="freelancer-short-price-contact">
@@ -79,6 +85,8 @@ FREELANCERS
 
 
 </div> <!-- /freelancers-short-main -->
+
+<div style="height:100px;"></div>
 
 </div> <!-- /freelancers-push -->
 

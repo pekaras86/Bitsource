@@ -31,15 +31,21 @@ PROJECTS/TASKS
       	<h5><a href="/Bitsource/public/project_task/{{$task->id}}">{{$task->tTitle}}</a></h5>
       	<h6><a href="/Bitsource/public/profile/{{$task->employee->profile->user->id}}">{{$task->employee->profile->user->uLname}} {{$task->employee->profile->user->uFname}}</a></h6>
       	<h6 style="text-align:justify;">{{str_limit($task->tDescription, 200)}}</h6>
-      	<div class="tasks-short-glyphicons">
-      		<span><b>Λήξη:</b></span><span class="space"> {{$task->tEnds}}</span>
-      	</div>
+        <div>
+          Ικανότητες : 
+          @foreach($task->skills as $skill)
+            <a href="#">{{$skill->sName}}</a>
+          @endforeach
+        </div>
       </div>
       <div class="tasks-short-price-contact">
         <h6><b><u>Προϋπολογισμός</u></b></h6>
         <h5 style="text-align:center;">
           <b>{{$task->tBudget}}</b>
         </h5>
+        <div class="tasks-short-glyphicons" style="margin-left:10px;">
+          <span><b>Λήξη:</b></span><span class="space"> {{$task->tEnds}}</span>
+        </div>
       </div>
     </div>
     @endforeach
@@ -62,8 +68,11 @@ PROJECTS/TASKS
         <h5><a href="/Bitsource/public/project_task/{{$task_table->id}}">{{$task_table->tTitle}}</a></h5>
         <h6><a href="/Bitsource/public/profile/{{$task_table->employee->profile->user->id}}">{{$task_table->employee->profile->user->uLname}} {{$task_table->employee->profile->user->uFname}}</a></h6>
         <h6 style="text-align:justify;">{{str_limit($task_table->tDescription, 200)}}</h6>
-        <div class="tasks-short-glyphicons">
-          <span><b>Λήξη:</b></span><span class="space"> {{$task_table->tEnds}}</span>
+        <div>
+          Ικανότητες : 
+          @foreach($task_table->skills as $skill)
+            <a href="#">{{$skill->sName}}</a>
+          @endforeach
         </div>
       </div>
       <div class="tasks-short-price-contact">
@@ -71,6 +80,9 @@ PROJECTS/TASKS
         <h5 style="text-align:center;">
           <b>{{$task_table->tBudget}}</b>
         </h5>
+        <div class="tasks-short-glyphicons" style="margin-left:10px;">
+          <span><b>Λήξη:</b></span><span class="space"> {{$task_table->tEnds}}</span>
+        </div>
       </div>
     </div>
     @endforeach

@@ -40,6 +40,12 @@
       @endif
   	
     </div>
+    <div>
+    Ικανότητες :
+      @foreach($job->skills as $skill)
+        <a href="#">{{$skill->sName}}</a>
+      @endforeach
+    </div>
   </div>
   <div class="jobs-short-price-contact">
     @if(Auth::guest())

@@ -14,11 +14,16 @@ class UsersListController extends Controller
 {
     function show() {
     	
-    	$profiles = \DB::table('profiles')->join('users', 'users.id', '=', 'profiles.uId')
+    	/*$profiles = \DB::table('profiles')->join('users', 'users.id', '=', 'profiles.uId')
     	                                  ->where('pCategory', '=', 'freelancer')
     	                                  ->orWhere('pCategory', '=', 'both')
-    	                                  ->get();
+    	                                  ->get();*/
 
+          $profiles = \App\Profile::where('pCategory', '=', 'freelancer')
+                                ->orWhere('pCategory', '=', 'both')
+                                ->get();
+                                    
+          
     	
         
     	return view('lists.users_list')->with('profiles', $profiles);

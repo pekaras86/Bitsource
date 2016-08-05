@@ -123,7 +123,7 @@
    </div>
 
 
-   <button type="button" class="save-todo btn btn-primary btn-lg">Αποθηκευση</button>
+   <button type="submit" class="save-todo btn btn-primary btn-lg">Αποθηκευση</button>
 
 
 

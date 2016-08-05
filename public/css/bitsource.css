@@ -266,7 +266,7 @@ footer p {
 }
 
 .freelancer-short-profile {
-    height:120px;
+    height:135px;
     width:800px;
     margin: auto;
     background-color: cyan;
@@ -331,7 +331,7 @@ footer p {
 }
 
 .jobs-short-profile {
-    height:170px;
+    height:190px;
     width:800px;
     margin: auto;
     background-color: cyan;
@@ -400,7 +400,7 @@ footer p {
 
 .task-owner-avatar {
     width: 110px;
-    height: 108px;
+    height: 105px;
     margin-top: 15px;
 }
 
@@ -427,7 +427,7 @@ footer p {
     float:right;
     width:15%;
     height:120px;
-    margin-top: 35px;
+    margin-top: 10px;
 }
 
 .push-tasks {
