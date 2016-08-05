@@ -13,6 +13,9 @@ class JobsListController extends Controller
         
         $jobs = \App\Ad::all();
 
-    	return view("lists.jobs_list")->with('jobs', $jobs);
+        $tasks_search = 0;
+
+    	return view("lists.jobs_list")->with('jobs', $jobs)
+    	                              ->with('tasks_search', $tasks_search);
     }
 }

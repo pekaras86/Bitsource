@@ -45,8 +45,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('tasks_list','TasksListController@show'); 
 
     //Lists with search
-    Route::get('tasks_list_search', 'TasksListSearchController@show'); 
-      
+    Route::get('tasks_list_search', 'TasksListSearchController@show');
+    Route::get('freelancers_list_search', 'FreelancersListSearchController@show');  
+    Route::get('jobs_list_search', 'JobsListSearchController@show');  
 
     //Descriptions 
     Route::resource('job', 'JobDescriptionController');
