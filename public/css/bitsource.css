@@ -43,6 +43,61 @@ footer p {
 }
 
 /********************Search 'Home' Page (without sign-in)********************/
+
+.hp-form-home {
+    width: 62%;
+    margin: auto;
+    position: relative;
+    top: 200px;
+}
+
+.hp-form-home label {
+    color: white;
+}
+
+.hp-form-home input {
+    color:white;
+}
+
+.styled-select-home select {
+    background-color: white;
+    background-size: 25px auto;
+    border-bottom-color: white;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    float:left;
+    height: 34px;
+    margin-top: -6px;
+    padding: 5px;
+    width: 140px;
+}
+
+.styled-select-home {
+    float:left;
+}
+
+.styled-select-home select:focus, select.form-control:focus {
+    border-color: #2196f3;
+    border-style: solid;
+    border-width: 0.2px;
+    box-shadow: 0 0 0 white;
+}
+
+.home-main-content {
+    background-image: url("../images/home_image.jpg");
+    background-size: 100% 110%;
+    height: 530px;
+    margin-bottom: -10px;
+    margin-top: -25px;
+    width: 100%;
+}
+
+.hp-form-home .text-wrap {
+    margin-left: 130px;
+}
+
+
+/**/
 .hp-form {
     width: 50%;
     margin: auto;
@@ -76,22 +131,15 @@ footer p {
     border-color: #2196f3;
 }
 
-.home-main-content {
-    height: 530px;
-    margin-top: -25px;
-    margin-bottom: -10px;
-    background-image: url("../images/home_image.jpg");
-    width: 100%;
-    background-size: 100% 110%;
-}
+
 
 /******************** Home Page (after sign-in)********************/
 .home-message {
     color: red;
+    display: none;
+    height: 25px;
     margin: auto;
     width: 150px;
-    height: 25px;
-    display: none;
 }
 
 .save-todo {
