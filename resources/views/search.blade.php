@@ -10,7 +10,7 @@
           <select id="selectsearch">
             <option value="category">Κατηγορία</option>
             <option value="tasks">Projects/Tasks</option>
-            <option value="freelancers">Eπαγγελματίες</option>
+            <option value="freelancers">Freelancers</option>
             <option value="jobs">Εργασία</option>
           </select>
         </span>

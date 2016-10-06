@@ -21,7 +21,7 @@ class UserRatingController extends Controller
     	$userCom  = $request->get('userComId');  // the user that comments ( freelancer or employee id )
     	$userProf = $request->get('userProf');   // the user with the profile ( freelancer or employee id )
     	$userType = $request->get('usCat');      // katigoria xristi profile ( 1:freelancer, 2:employee )
-
+        
     	
     	// kai valta sto table comments
         \DB::table('comments')->insert(
@@ -41,6 +41,6 @@ class UserRatingController extends Controller
         //$freelancer->employees()->attach($userProf);
         
     	return response($userCom);
-
+        
     }
 }

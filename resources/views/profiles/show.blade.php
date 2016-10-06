@@ -124,7 +124,7 @@
 		    </div>
 		    <div class="form-group">
 		        <label for="message-text" class="control-label">Mήνυμα:</label>
-		        <textarea rows="5" class="form-control" id="reviewComment" name="modalDescription"></textarea>
+		        <textarea rows="5" class="form-control" id="reviewComment1" name="modalDescription"></textarea>
 		    </div>
 	      </div>
 	      <div class="modal-footer">
